@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GYMSPORT — Fitness & Belleza en 12 de Octubre</title>
+  <meta name="description" content="GYMSPORT: gimnasio completo con clases, pesas, máquinas, salón de belleza y tienda de suplementos. Avenida 12 de Octubre.">
+  <meta name="color-scheme" content="light only">
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1723;
+      --muted:#a9b3c5;
+      --text:#e8eef8;
+      --accent:#ef4444; /* rojo fitness */
+      --accent2:#22c55e; /* verde productos */
+      --max:1180px;
+      --r:16px;
+      --shadow:0 12px 40px rgba(0,0,0,.25);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#0b0f14,#0c121a 50%,#0b0f14);color:var(--text)}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:40;background:rgba(10,14,20,.6);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#ff7e7e);box-shadow:var(--shadow)}
+    .menu{display:flex;gap:16px;align-items:center}
+    .menu a{color:var(--muted)}
+    .menu a:hover{color:#fff}
+    .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:transparent;color:#fff;cursor:pointer;font-weight:700}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),#ff7e7e);border:none;color:#1f0a0a}
+    .hamb{display:none;background:transparent;border:none;color:#fff;font-size:20px}
+
+    /* Hero + Carousel */
+    section{padding:40px 0}
+    .hero{padding-top:10px}
+    .hero-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);color:#ffc8c8;font-size:12px}
+    .lead{color:var(--muted);max-width:54ch}
+    .cta{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+    .carousel{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
+    .track{display:flex;transition:transform .6s ease;width:300%}
+    .slide{flex:0 0 100%;aspect-ratio:16/9;position:relative}
+    .slide img{width:100%;height:100%;object-fit:cover}
+    .cap{position:absolute;left:16px;bottom:14px;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);padding:10px 12px;border-radius:12px}
+    .dots{position:absolute;right:12px;bottom:12px;display:flex;gap:6px}
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;border:1px solid rgba(0,0,0,.25)}
+    .dot.active{background:var(--accent)}
+
+    /* Blocks */
+    .grid{display:grid;gap:14px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .card{background:linear-gradient(180deg,#101825,#0e1621);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:16px}
+    .tag{display:inline-block;padding:4px 8px;border:1px solid rgba(255,255,255,.1);border-radius:999px;font-size:12px;color:#cfe6ff}
+
+    /* Pricing */
+    .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .price{background:linear-gradient(180deg,#0f1723,#0b1320);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px;position:relative}
+    .price .tag{position:absolute;top:12px;right:12px}
+    .price h3{margin:6px 0}
+    .price b{font-size:28px}
+    .ul{list-style:none;padding:0;margin:12px 0 0 0;color:var(--muted)}
+    .ul li{margin:8px 0;display:flex;gap:8px;align-items:flex-start}
+
+    /* Shop cards */
+    .shop{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .prod{background:#0f1723;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
+    .prod img{width:100%;height:150px;object-fit:cover}
+    .prod .p{padding:10px}
+    .price-tag{font-weight:800;color:#ffd4d4}
+
+    /* Contact */
+    form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    form .full{grid-column:1/-1}
+    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0b1320;color:var(--text)}
+    textarea{min-height:120px}
+
+    /* Fab WhatsApp */
+    .fab{position:fixed;right:18px;bottom:18px;z-index:50}
+    .fab a{display:inline-flex;gap:10px;align-items:center;background:#25D366;color:#001015;padding:12px 14px;border-radius:999px;font-weight:800;box-shadow:var(--shadow)}
+
+    /* Footer */
+    .foot{text-align:center;color:var(--muted);padding:26px 0;border-top:1px solid rgba(255,255,255,.06);margin-top:30px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero-wrap{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:1fr 1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .plans{grid-template-columns:1fr}
+      .shop{grid-template-columns:1fr 1fr}
+      form{grid-template-columns:1fr}
+      .menu{display:none}
+      .hamb{display:inline-flex}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <b>GYMSPORT</b>
+      </div>
+      <nav class="menu" id="menu">
+        <a href="#membresias">Membresías</a>
+        <a href="#clases">Clases</a>
+        <a href="#maquinas">Máquinas</a>
+        <a href="#belleza">Salón de Belleza</a>
+        <a href="#tienda">Tienda</a>
+        <a href="#contacto">Contáctenos</a>
+        <button class="btn" onclick="openWhatsApp()">Inscríbete</button>
+      </nav>
+      <button class="hamb" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <span class="badge">Avenida 12 de Octubre • Abierto desde las 5:00 a.m.</span>
+        <h1>Entrena fuerte. Vive mejor.</h1>
+        <p class="lead">GYMSPORT combina áreas de pesas, cardio y clases dirigidas con un salón de belleza in-house y una tienda de suplementos y accesorios.</p>
+        <div class="cta">
+          <button class="btn primary" onclick="openWhatsApp('Hola GYMSPORT, quiero mi membresía.')">¡Quiero mi membresía!</button>
+          <a class="btn" href="#membresias">Ver planes</a>
+        </div>
+      </div>
+
+      <!-- Carousel -->
+      <div class="carousel" aria-label="Banners">
+        <div id="track" class="track">
+          <!-- Banner 1: gente entrenando -->
+          <figure class="slide">
+            <img src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=1600&auto=format&fit=crop" alt="Entrenamiento en GYMSPORT">
+            <figcaption class="cap">Sala de pesas y cardio • Coaches certificados</figcaption>
+          </figure>
+          <!-- Banner 2: proteína/suplementos -->
+          <figure class="slide">
+            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1600&auto=format&fit=crop" alt="Proteínas y suplementos">
+            <figcaption class="cap">Suplementos y snacks saludables en nuestra tienda</figcaption>
+          </figure>
+          <!-- Banner 3: precios membresía -->
+          <figure class="slide">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop" alt="Promoción de Membresías">
+            <figcaption class="cap">Membresías desde <b>$29/mes</b> • Inscripción rápida</figcaption>
+          </figure>
+        </div>
+        <div class="dots" id="dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membresías -->
+  <section id="membresias">
+    <div class="container">
+      <h2>Membresías</h2>
+      <p class="lead" style="color:var(--muted)">Elige el plan que se ajuste a tus metas. Sin letras pequeñas.</p>
+      <div class="plans">
+        <div class="price">
+          <span class="tag">Inicio</span>
+          <h3>Basic</h3>
+          <b>$29/mes</b>
+          <ul class="ul">
+            <li>Acceso a sala de pesas y cardio</li>
+            <li>Horarios regulares</li>
+            <li>Inducción básica de máquinas</li>
+          </ul>
+          <button class="btn primary" onclick="openWhatsApp('Plan Basic $29/mes')">Elegir plan</button>
+        </div>
+        <div class="price" style="border-color:rgba(239,68,68,.6);box-shadow:0 0 0 1px rgba(239,68,68,.25) inset">
+          <span class="tag" style="background:linear-gradient(135deg,var(--accent),#ff7e7e);color:#300">Popular</span>
+          <h3>Pro</h3>
+          <b>$39/mes</b>
+          <ul class="ul">
+            <li>Todo lo de Basic</li>
+            <li>Clases dirigidas ilimitadas</li>
+            <li>Plan de entrenamiento mensual</li>
+          </ul>
+          <button class="btn primary" onclick="openWhatsApp('Plan Pro $39/mes')">Elegir plan</button>
+        </div>
+        <div class="price">
+          <span class="tag">Total</span>
+          <h3>Elite</h3>
+          <b>$59/mes</b>
+          <ul class="ul">
+            <li>Todo lo de Pro</li>
+            <li>Asesoría nutricional</li>
+            <li>Invitados (2 al mes)</li>
+          </ul>
+          <button class="btn primary" onclick="openWhatsApp('Plan Elite $59/mes')">Elegir plan</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clases / Tipos de ejercicios -->
+  <section id="clases">
+    <div class="container">
+      <h2>Clases y tipos de ejercicio</h2>
+      <div class="grid grid-4">
+        <div class="card">
+          <span class="tag">Fuerza</span>
+          <h3>Musculación</h3>
+          <p class="lead" style="color:var(--muted)">Rutinas por grupos musculares, progresión y técnica.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Cardio</span>
+          <h3>HIIT & Spinning</h3>
+          <p class="lead" style="color:var(--muted)">Intervalos de alta intensidad y ciclismo indoor.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Movilidad</span>
+          <h3>Functional</h3>
+          <p class="lead" style="color:var(--muted)">Core, estabilidad y trabajo metabólico.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Mind-Body</span>
+          <h3>Yoga & Stretching</h3>
+          <p class="lead" style="color:var(--muted)">Flexibilidad, respiración y control postural.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Máquinas -->
+  <section id="maquinas">
+    <div class="container">
+      <h2>Máquinas y zonas</h2>
+      <div class="grid grid-4">
