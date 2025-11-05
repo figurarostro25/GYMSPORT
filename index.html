@@ -239,3 +239,161 @@
     <div class="container">
       <h2>Máquinas y zonas</h2>
       <div class="grid grid-4">
+        <div class="card"><h3>Cardio</h3><p class="lead" style="color:var(--muted)">Caminadoras, elípticas, bicicletas y remos.</p></div>
+        <div class="card"><h3>Pesas libres</h3><p class="lead" style="color:var(--muted)">Mancuernas hasta 50kg, racks y bancos.</p></div>
+        <div class="card"><h3>Placas guiadas</h3><p class="lead" style="color:var(--muted)">Poleas, jalones, prensa y extensiones.</p></div>
+        <div class="card"><h3>Zonas especiales</h3><p class="lead" style="color:var(--muted)">Crosstraining, core y estiramientos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Salón de belleza (dentro del gimnasio) -->
+  <section id="belleza">
+    <div class="container">
+      <h2>Salón de Belleza — dentro de GYMSPORT</h2>
+      <p class="lead" style="color:var(--muted)">Porque verte bien también es parte del rendimiento. Reserva tu servicio antes o después del entrenamiento.</p>
+      <div class="grid grid-4">
+        <div class="card">
+          <span class="tag">Cabello</span>
+          <h3>Brushing & Corte</h3>
+          <p class="lead" style="color:var(--muted)">Peinado express, corte y tratamiento hidratante.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Piel</span>
+          <h3>Faciales rápidos</h3>
+          <p class="lead" style="color:var(--muted)">Limpieza express y mascarillas revitalizantes.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Uñas</span>
+          <h3>Mani & Pedi</h3>
+          <p class="lead" style="color:var(--muted)">Acabados impecables y colores de temporada.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Relajación</span>
+          <h3>Masajes</h3>
+          <p class="lead" style="color:var(--muted)">Descontracturante y deportivo focalizado.</p>
+        </div>
+      </div>
+      <div class="cta" style="margin-top:12px">
+        <button class="btn primary" onclick="openWhatsApp('Quiero reservar salón de belleza')">Reservar Belleza</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tienda de productos -->
+  <section id="tienda">
+    <div class="container">
+      <h2>Tienda — Accesorios & Batidos</h2>
+      <div class="shop">
+        <div class="prod">
+          <img src="https://images.unsplash.com/photo-1599050751795-5dd9e5f9c8ba?q=80&w=1200&auto=format&fit=crop" alt="Guantes de entrenamiento">
+          <div class="p">
+            <b>Guantes Pro</b>
+            <div class="price-tag">$18.90</div>
+            <p class="lead" style="color:var(--muted)">Agarre seguro y protección de palma.</p>
+            <button class="btn" onclick="openWhatsApp('Comprar: Guantes Pro')">Comprar</button>
+          </div>
+        </div>
+        <div class="prod">
+          <img src="https://images.unsplash.com/photo-1599050751889-447281d08f56?q=80&w=1200&auto=format&fit=crop" alt="Cinturón de levantamiento">
+          <div class="p">
+            <b>Cinturón Lifting</b>
+            <div class="price-tag">$24.90</div>
+            <p class="lead" style="color:var(--muted)">Soporte lumbar para grandes levantamientos.</p>
+            <button class="btn" onclick="openWhatsApp('Comprar: Cinturón Lifting')">Comprar</button>
+          </div>
+        </div>
+        <div class="prod">
+          <img src="https://images.unsplash.com/photo-1554672408-842f53f9a3f0?q=80&w=1200&auto=format&fit=crop" alt="Proteína en polvo">
+          <div class="p">
+            <b>Proteína Whey 2lb</b>
+            <div class="price-tag">$39.90</div>
+            <p class="lead" style="color:var(--muted)">Recuperación y construcción muscular.</p>
+            <button class="btn" onclick="openWhatsApp('Comprar: Proteína Whey 2lb')">Comprar</button>
+          </div>
+        </div>
+        <div class="prod">
+          <img src="https://images.unsplash.com/photo-1543826173-70651703c5b6?q=80&w=1200&auto=format&fit=crop" alt="Batidos y smoothies">
+          <div class="p">
+            <b>Batidos & Smoothies</b>
+            <div class="price-tag">desde $4.50</div>
+            <p class="lead" style="color:var(--muted)">Post-workout: proteína + fruta real.</p>
+            <button class="btn" onclick="openWhatsApp('Ordenar: Batido post-workout')">Ordenar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <div class="container">
+      <h2>Contáctenos</h2>
+      <p class="lead" style="color:var(--muted)">Avenida 12 de Octubre — ¡estamos para ayudarte con tu objetivo!</p>
+      <form onsubmit="return sendLead(event)">
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+        <input type="email" name="email" placeholder="Tu correo" required />
+        <input type="text" name="telefono" placeholder="WhatsApp (con país)" />
+        <input type="text" name="plan" placeholder="Plan de interés (Basic/Pro/Elite)" />
+        <textarea class="full" name="mensaje" placeholder="Cuéntanos tus metas" required></textarea>
+        <button class="btn primary">Enviar</button>
+      </form>
+      <div class="foot">© <span id="year"></span> <b>GYMSPORT</b> — Fitness & Belleza.</div>
+    </div>
+  </section>
+
+  <!-- FAB WhatsApp -->
+  <div class="fab">
+    <a href="#" onclick="openWhatsApp();return false" title="Chatea por WhatsApp">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.52 3.48A11.85 11.85 0 0 0 12.03.5 11.98 11.98 0 0 0 .5 12c0 2.12.56 4.12 1.63 5.86L.5 23.5l5.9-1.56a11.98 11.98 0 0 0 5.63 1.45h.01c6.6 0 11.98-5.37 11.98-11.98 0-3.2-1.25-6.18-3.57-8.43z" fill="#001015"/></svg>
+      WhatsApp
+    </a>
+  </div>
+
+  <script>
+    // Año
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menú móvil
+    function toggleMenu(){
+      const m = document.getElementById('menu');
+      m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+      if(m.style.display === 'flex'){ m.style.flexDirection = 'column'; m.style.alignItems = 'flex-start'; }
+    }
+
+    // Carousel simple
+    const track = document.getElementById('track');
+    const slides = Array.from(track.children);
+    const dotsBox = document.getElementById('dots');
+    let i=0;
+    slides.forEach((_,k)=>{ const d=document.createElement('div'); d.className='dot'+(k===0?' active':''); d.onclick=()=>go(k); dotsBox.appendChild(d); });
+    function go(n){ i=n; update(); resetAuto(); }
+    function next(){ i=(i+1)%slides.length; update(); }
+    function update(){ track.style.transform=`translateX(-${i*100}%)`; dotsBox.querySelectorAll('.dot').forEach((d,k)=>d.classList.toggle('active',k===i)); }
+    let auto=setInterval(next,5000); function resetAuto(){ clearInterval(auto); auto=setInterval(next,5000); }
+
+    // WhatsApp (ajusta tu número si quieres otro)
+    const WA = '50762464619'; // cámbialo si deseas
+    function openWhatsApp(prefill){
+      const t = encodeURIComponent(prefill || 'Hola GYMSPORT, quiero información de membresías 💪');
+      window.open(`https://wa.me/${WA}?text=${t}`,'_blank');
+    }
+
+    // Form → WhatsApp + mailto
+    function sendLead(e){
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const nombre = fd.get('nombre');
+      const email = fd.get('email');
+      const telefono = fd.get('telefono')||'';
+      const plan = fd.get('plan')||'';
+      const mensaje = fd.get('mensaje');
+      const body = `Hola, soy ${nombre}.%0AEmail: ${email}%0AWhatsApp: ${telefono}%0APlan: ${plan}%0AMensaje: ${mensaje}`;
+      window.open(`https://wa.me/${WA}?text=${body}`,'_blank');
+      window.location.href=`mailto:info@gymsport.com?subject=Contacto%20GYMSPORT&body=${body}`;
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
