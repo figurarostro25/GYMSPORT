@@ -1,399 +1,253 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GYMSPORT — Fitness & Belleza en 12 de Octubre</title>
-  <meta name="description" content="GYMSPORT: gimnasio completo con clases, pesas, máquinas, salón de belleza y tienda de suplementos. Avenida 12 de Octubre.">
-  <meta name="color-scheme" content="light only">
-  <style>
-    :root{
-      --bg:#0b0f14;
-      --card:#0f1723;
-      --muted:#a9b3c5;
-      --text:#e8eef8;
-      --accent:#ef4444; /* rojo fitness */
-      --accent2:#22c55e; /* verde productos */
-      --max:1180px;
-      --r:16px;
-      --shadow:0 12px 40px rgba(0,0,0,.25);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:linear-gradient(180deg,#0b0f14,#0c121a 50%,#0b0f14);color:var(--text)}
-    img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sex&More507 | Tienda Íntima Online</title>
 
-    /* Header */
-    header{position:sticky;top:0;z-index:40;background:rgba(10,14,20,.6);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;gap:10px;align-items:center}
-    .logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#ff7e7e);box-shadow:var(--shadow)}
-    .menu{display:flex;gap:16px;align-items:center}
-    .menu a{color:var(--muted)}
-    .menu a:hover{color:#fff}
-    .btn{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:transparent;color:#fff;cursor:pointer;font-weight:700}
-    .btn.primary{background:linear-gradient(135deg,var(--accent),#ff7e7e);border:none;color:#1f0a0a}
-    .hamb{display:none;background:transparent;border:none;color:#fff;font-size:20px}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    /* Hero + Carousel */
-    section{padding:40px 0}
-    .hero{padding-top:10px}
-    .hero-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center}
-    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);color:#ffc8c8;font-size:12px}
-    .lead{color:var(--muted);max-width:54ch}
-    .cta{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-    .carousel{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
-    .track{display:flex;transition:transform .6s ease;width:300%}
-    .slide{flex:0 0 100%;aspect-ratio:16/9;position:relative}
-    .slide img{width:100%;height:100%;object-fit:cover}
-    .cap{position:absolute;left:16px;bottom:14px;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);padding:10px 12px;border-radius:12px}
-    .dots{position:absolute;right:12px;bottom:12px;display:flex;gap:6px}
-    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;border:1px solid rgba(0,0,0,.25)}
-    .dot.active{background:var(--accent)}
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#0e0e0e;color:#fff;line-height:1.6}
 
-    /* Blocks */
-    .grid{display:grid;gap:14px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-4{grid-template-columns:repeat(4,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .card{background:linear-gradient(180deg,#101825,#0e1621);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:16px}
-    .tag{display:inline-block;padding:4px 8px;border:1px solid rgba(255,255,255,.1);border-radius:999px;font-size:12px;color:#cfe6ff}
+/* HEADER */
+header{
+  background:#000;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+.logo{
+  font-size:28px;
+  font-weight:700;
+  color:#ff2f92;
+}
+nav a{
+  margin-left:20px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+}
+.pedido-btn{
+  background:#ff2f92;
+  padding:10px 18px;
+  border-radius:30px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
 
-    /* Pricing */
-    .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .price{background:linear-gradient(180deg,#0f1723,#0b1320);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px;position:relative}
-    .price .tag{position:absolute;top:12px;right:12px}
-    .price h3{margin:6px 0}
-    .price b{font-size:28px}
-    .ul{list-style:none;padding:0;margin:12px 0 0 0;color:var(--muted)}
-    .ul li{margin:8px 0;display:flex;gap:8px;align-items:flex-start}
+/* SLIDER */
+.slider{
+  height:80vh;
+  background:url("https://via.placeholder.com/1600x800/1a1a1a/ff2f92?text=Explora+Tu+Placer") center/cover;
+  display:flex;
+  align-items:center;
+  padding:60px;
+}
+.slider h1{
+  font-size:48px;
+  max-width:600px;
+}
+.slider p{
+  margin-top:15px;
+  font-size:18px;
+}
 
-    /* Shop cards */
-    .shop{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .prod{background:#0f1723;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
-    .prod img{width:100%;height:150px;object-fit:cover}
-    .prod .p{padding:10px}
-    .price-tag{font-weight:800;color:#ffd4d4}
+/* SECCIONES */
+section{padding:80px 40px;}
+.section-title{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:40px;
+  color:#ff2f92;
+}
 
-    /* Contact */
-    form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    form .full{grid-column:1/-1}
-    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0b1320;color:var(--text)}
-    textarea{min-height:120px}
+/* PRODUCTOS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+.card{
+  background:#1b1b1b;
+  border-radius:15px;
+  padding:20px;
+  text-align:center;
+}
+.card img{
+  width:100%;
+  border-radius:10px;
+}
+.card h3{margin:15px 0 5px;}
+.price{color:#ff2f92;font-weight:600}
 
-    /* Fab WhatsApp */
-    .fab{position:fixed;right:18px;bottom:18px;z-index:50}
-    .fab a{display:inline-flex;gap:10px;align-items:center;background:#25D366;color:#001015;padding:12px 14px;border-radius:999px;font-weight:800;box-shadow:var(--shadow)}
+/* MENSAJES */
+.mensajes{
+  background:#111;
+  text-align:center;
+}
+.mensajes p{
+  font-size:22px;
+  margin:25px 0;
+  color:#f1c6d9;
+}
 
-    /* Footer */
-    .foot{text-align:center;color:var(--muted);padding:26px 0;border-top:1px solid rgba(255,255,255,.06);margin-top:30px}
+/* BLOG */
+.blog{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.blog article{
+  background:#1b1b1b;
+  padding:25px;
+  border-radius:15px;
+}
+.blog h3{color:#ff2f92;margin-bottom:10px}
 
-    /* Responsive */
-    @media (max-width:980px){
-      .hero-wrap{grid-template-columns:1fr}
-      .grid-4{grid-template-columns:1fr 1fr}
-      .grid-3{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
-      .plans{grid-template-columns:1fr}
-      .shop{grid-template-columns:1fr 1fr}
-      form{grid-template-columns:1fr}
-      .menu{display:none}
-      .hamb{display:inline-flex}
-    }
-  </style>
+/* GALERIA */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+.gallery img{
+  width:100%;
+  border-radius:12px;
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  padding:50px 40px;
+  text-align:center;
+}
+footer p{margin:8px 0;color:#ccc}
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+  position:fixed;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  background:#25d366;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  z-index:2000;
+}
+</style>
 </head>
+
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <b>GYMSPORT</b>
-      </div>
-      <nav class="menu" id="menu">
-        <a href="#membresias">Membresías</a>
-        <a href="#clases">Clases</a>
-        <a href="#maquinas">Máquinas</a>
-        <a href="#belleza">Salón de Belleza</a>
-        <a href="#tienda">Tienda</a>
-        <a href="#contacto">Contáctenos</a>
-        <button class="btn" onclick="openWhatsApp()">Inscríbete</button>
-      </nav>
-      <button class="hamb" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
-    </div>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-wrap">
-      <div>
-        <span class="badge">Avenida 12 de Octubre • Abierto desde las 5:00 a.m.</span>
-        <h1>Entrena fuerte. Vive mejor.</h1>
-        <p class="lead">GYMSPORT combina áreas de pesas, cardio y clases dirigidas con un salón de belleza in-house y una tienda de suplementos y accesorios.</p>
-        <div class="cta">
-          <button class="btn primary" onclick="openWhatsApp('Hola GYMSPORT, quiero mi membresía.')">¡Quiero mi membresía!</button>
-          <a class="btn" href="#membresias">Ver planes</a>
-        </div>
-      </div>
+<header>
+  <div class="logo">Sex&More507</div>
+  <nav>
+    <a href="#productos">Productos</a>
+    <a href="#blog">Blog</a>
+    <a href="#contacto" class="pedido-btn">Pedidos</a>
+  </nav>
+</header>
 
-      <!-- Carousel -->
-      <div class="carousel" aria-label="Banners">
-        <div id="track" class="track">
-          <!-- Banner 1: gente entrenando -->
-          <figure class="slide">
-            <img src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=1600&auto=format&fit=crop" alt="Entrenamiento en GYMSPORT">
-            <figcaption class="cap">Sala de pesas y cardio • Coaches certificados</figcaption>
-          </figure>
-          <!-- Banner 2: proteína/suplementos -->
-          <figure class="slide">
-            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1600&auto=format&fit=crop" alt="Proteínas y suplementos">
-            <figcaption class="cap">Suplementos y snacks saludables en nuestra tienda</figcaption>
-          </figure>
-          <!-- Banner 3: precios membresía -->
-          <figure class="slide">
-            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop" alt="Promoción de Membresías">
-            <figcaption class="cap">Membresías desde <b>$29/mes</b> • Inscripción rápida</figcaption>
-          </figure>
-        </div>
-        <div class="dots" id="dots"></div>
-      </div>
-    </div>
-  </section>
+<a href="https://wa.me/50760268772" class="whatsapp">💬 WhatsApp</a>
 
-  <!-- Membresías -->
-  <section id="membresias">
-    <div class="container">
-      <h2>Membresías</h2>
-      <p class="lead" style="color:var(--muted)">Elige el plan que se ajuste a tus metas. Sin letras pequeñas.</p>
-      <div class="plans">
-        <div class="price">
-          <span class="tag">Inicio</span>
-          <h3>Basic</h3>
-          <b>$29/mes</b>
-          <ul class="ul">
-            <li>Acceso a sala de pesas y cardio</li>
-            <li>Horarios regulares</li>
-            <li>Inducción básica de máquinas</li>
-          </ul>
-          <button class="btn primary" onclick="openWhatsApp('Plan Basic $29/mes')">Elegir plan</button>
-        </div>
-        <div class="price" style="border-color:rgba(239,68,68,.6);box-shadow:0 0 0 1px rgba(239,68,68,.25) inset">
-          <span class="tag" style="background:linear-gradient(135deg,var(--accent),#ff7e7e);color:#300">Popular</span>
-          <h3>Pro</h3>
-          <b>$39/mes</b>
-          <ul class="ul">
-            <li>Todo lo de Basic</li>
-            <li>Clases dirigidas ilimitadas</li>
-            <li>Plan de entrenamiento mensual</li>
-          </ul>
-          <button class="btn primary" onclick="openWhatsApp('Plan Pro $39/mes')">Elegir plan</button>
-        </div>
-        <div class="price">
-          <span class="tag">Total</span>
-          <h3>Elite</h3>
-          <b>$59/mes</b>
-          <ul class="ul">
-            <li>Todo lo de Pro</li>
-            <li>Asesoría nutricional</li>
-            <li>Invitados (2 al mes)</li>
-          </ul>
-          <button class="btn primary" onclick="openWhatsApp('Plan Elite $59/mes')">Elegir plan</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clases / Tipos de ejercicios -->
-  <section id="clases">
-    <div class="container">
-      <h2>Clases y tipos de ejercicio</h2>
-      <div class="grid grid-4">
-        <div class="card">
-          <span class="tag">Fuerza</span>
-          <h3>Musculación</h3>
-          <p class="lead" style="color:var(--muted)">Rutinas por grupos musculares, progresión y técnica.</p>
-        </div>
-        <div class="card">
-          <span class="tag">Cardio</span>
-          <h3>HIIT & Spinning</h3>
-          <p class="lead" style="color:var(--muted)">Intervalos de alta intensidad y ciclismo indoor.</p>
-        </div>
-        <div class="card">
-          <span class="tag">Movilidad</span>
-          <h3>Functional</h3>
-          <p class="lead" style="color:var(--muted)">Core, estabilidad y trabajo metabólico.</p>
-        </div>
-        <div class="card">
-          <span class="tag">Mind-Body</span>
-          <h3>Yoga & Stretching</h3>
-          <p class="lead" style="color:var(--muted)">Flexibilidad, respiración y control postural.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Máquinas -->
-  <section id="maquinas">
-    <div class="container">
-      <h2>Máquinas y zonas</h2>
-      <div class="grid grid-4">
-        <div class="card"><h3>Cardio</h3><p class="lead" style="color:var(--muted)">Caminadoras, elípticas, bicicletas y remos.</p></div>
-        <div class="card"><h3>Pesas libres</h3><p class="lead" style="color:var(--muted)">Mancuernas hasta 50kg, racks y bancos.</p></div>
-        <div class="card"><h3>Placas guiadas</h3><p class="lead" style="color:var(--muted)">Poleas, jalones, prensa y extensiones.</p></div>
-        <div class="card"><h3>Zonas especiales</h3><p class="lead" style="color:var(--muted)">Crosstraining, core y estiramientos.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Salón de belleza (dentro del gimnasio) -->
-  <section id="belleza">
-    <div class="container">
-      <h2>Salón de Belleza — dentro de GYMSPORT</h2>
-      <p class="lead" style="color:var(--muted)">Porque verte bien también es parte del rendimiento. Reserva tu servicio antes o después del entrenamiento.</p>
-      <div class="grid grid-4">
-        <div class="card">
-          <span class="tag">Cabello</span>
-          <h3>Brushing & Corte</h3>
-          <p class="lead" style="color:var(--muted)">Peinado express, corte y tratamiento hidratante.</p>
-        </div>
-        <div class="card">
-          <span class="tag">Piel</span>
-          <h3>Faciales rápidos</h3>
-          <p class="lead" style="color:var(--muted)">Limpieza express y mascarillas revitalizantes.</p>
-        </div>
-        <div class="card">
-          <span class="tag">Uñas</span>
-          <h3>Mani & Pedi</h3>
-          <p class="lead" style="color:var(--muted)">Acabados impecables y colores de temporada.</p>
-        </div>
-        <div class="card">
-          <span class="tag">Relajación</span>
-          <h3>Masajes</h3>
-          <p class="lead" style="color:var(--muted)">Descontracturante y deportivo focalizado.</p>
-        </div>
-      </div>
-      <div class="cta" style="margin-top:12px">
-        <button class="btn primary" onclick="openWhatsApp('Quiero reservar salón de belleza')">Reservar Belleza</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tienda de productos -->
-  <section id="tienda">
-    <div class="container">
-      <h2>Tienda — Accesorios & Batidos</h2>
-      <div class="shop">
-        <div class="prod">
-          <img src="https://images.unsplash.com/photo-1599050751795-5dd9e5f9c8ba?q=80&w=1200&auto=format&fit=crop" alt="Guantes de entrenamiento">
-          <div class="p">
-            <b>Guantes Pro</b>
-            <div class="price-tag">$18.90</div>
-            <p class="lead" style="color:var(--muted)">Agarre seguro y protección de palma.</p>
-            <button class="btn" onclick="openWhatsApp('Comprar: Guantes Pro')">Comprar</button>
-          </div>
-        </div>
-        <div class="prod">
-          <img src="https://images.unsplash.com/photo-1599050751889-447281d08f56?q=80&w=1200&auto=format&fit=crop" alt="Cinturón de levantamiento">
-          <div class="p">
-            <b>Cinturón Lifting</b>
-            <div class="price-tag">$24.90</div>
-            <p class="lead" style="color:var(--muted)">Soporte lumbar para grandes levantamientos.</p>
-            <button class="btn" onclick="openWhatsApp('Comprar: Cinturón Lifting')">Comprar</button>
-          </div>
-        </div>
-        <div class="prod">
-          <img src="https://images.unsplash.com/photo-1554672408-842f53f9a3f0?q=80&w=1200&auto=format&fit=crop" alt="Proteína en polvo">
-          <div class="p">
-            <b>Proteína Whey 2lb</b>
-            <div class="price-tag">$39.90</div>
-            <p class="lead" style="color:var(--muted)">Recuperación y construcción muscular.</p>
-            <button class="btn" onclick="openWhatsApp('Comprar: Proteína Whey 2lb')">Comprar</button>
-          </div>
-        </div>
-        <div class="prod">
-          <img src="https://images.unsplash.com/photo-1543826173-70651703c5b6?q=80&w=1200&auto=format&fit=crop" alt="Batidos y smoothies">
-          <div class="p">
-            <b>Batidos & Smoothies</b>
-            <div class="price-tag">desde $4.50</div>
-            <p class="lead" style="color:var(--muted)">Post-workout: proteína + fruta real.</p>
-            <button class="btn" onclick="openWhatsApp('Ordenar: Batido post-workout')">Ordenar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto">
-    <div class="container">
-      <h2>Contáctenos</h2>
-      <p class="lead" style="color:var(--muted)">Avenida 12 de Octubre — ¡estamos para ayudarte con tu objetivo!</p>
-      <form onsubmit="return sendLead(event)">
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
-        <input type="email" name="email" placeholder="Tu correo" required />
-        <input type="text" name="telefono" placeholder="WhatsApp (con país)" />
-        <input type="text" name="plan" placeholder="Plan de interés (Basic/Pro/Elite)" />
-        <textarea class="full" name="mensaje" placeholder="Cuéntanos tus metas" required></textarea>
-        <button class="btn primary">Enviar</button>
-      </form>
-      <div class="foot">© <span id="year"></span> <b>GYMSPORT</b> — Fitness & Belleza.</div>
-    </div>
-  </section>
-
-  <!-- FAB WhatsApp -->
-  <div class="fab">
-    <a href="#" onclick="openWhatsApp();return false" title="Chatea por WhatsApp">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.52 3.48A11.85 11.85 0 0 0 12.03.5 11.98 11.98 0 0 0 .5 12c0 2.12.56 4.12 1.63 5.86L.5 23.5l5.9-1.56a11.98 11.98 0 0 0 5.63 1.45h.01c6.6 0 11.98-5.37 11.98-11.98 0-3.2-1.25-6.18-3.57-8.43z" fill="#001015"/></svg>
-      WhatsApp
-    </a>
+<section class="slider">
+  <div>
+    <h1>Descubre el placer sin límites</h1>
+    <p>Tienda íntima online · Discreción garantizada · Venta contra entrega en oficina</p>
   </div>
+</section>
 
-  <script>
-    // Año
-    document.getElementById('year').textContent = new Date().getFullYear();
+<section>
+  <h2 class="section-title">Productos en Descuento</h2>
+  <div class="products">
+    <div class="card">
+      <img src="https://via.placeholder.com/300x300?text=Vibrador">
+      <h3>Vibrador Silencioso</h3>
+      <p class="price">$29.99</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x300?text=Lubricante">
+      <h3>Lubricante Premium</h3>
+      <p class="price">$14.99</p>
+    </div>
+  </div>
+</section>
 
-    // Menú móvil
-    function toggleMenu(){
-      const m = document.getElementById('menu');
-      m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
-      if(m.style.display === 'flex'){ m.style.flexDirection = 'column'; m.style.alignItems = 'flex-start'; }
-    }
+<section id="productos">
+  <h2 class="section-title">Para Damas</h2>
+  <div class="products">
+    <div class="card"><img src="https://via.placeholder.com/300x300?text=Woman+Toy"><h3>Estimulador</h3></div>
+    <div class="card"><img src="https://via.placeholder.com/300x300?text=Woman+Toy"><h3>Bala Vibradora</h3></div>
+  </div>
+</section>
 
-    // Carousel simple
-    const track = document.getElementById('track');
-    const slides = Array.from(track.children);
-    const dotsBox = document.getElementById('dots');
-    let i=0;
-    slides.forEach((_,k)=>{ const d=document.createElement('div'); d.className='dot'+(k===0?' active':''); d.onclick=()=>go(k); dotsBox.appendChild(d); });
-    function go(n){ i=n; update(); resetAuto(); }
-    function next(){ i=(i+1)%slides.length; update(); }
-    function update(){ track.style.transform=`translateX(-${i*100}%)`; dotsBox.querySelectorAll('.dot').forEach((d,k)=>d.classList.toggle('active',k===i)); }
-    let auto=setInterval(next,5000); function resetAuto(){ clearInterval(auto); auto=setInterval(next,5000); }
+<section>
+  <h2 class="section-title">Para Caballeros</h2>
+  <div class="products">
+    <div class="card"><img src="https://via.placeholder.com/300x300?text=Men+Toy"><h3>Masturbador</h3></div>
+    <div class="card"><img src="https://via.placeholder.com/300x300?text=Men+Toy"><h3>Anillo Retardante</h3></div>
+  </div>
+</section>
 
-    // WhatsApp (ajusta tu número si quieres otro)
-    const WA = '50762464619'; // cámbialo si deseas
-    function openWhatsApp(prefill){
-      const t = encodeURIComponent(prefill || 'Hola GYMSPORT, quiero información de membresías 💪');
-      window.open(`https://wa.me/${WA}?text=${t}`,'_blank');
-    }
+<section>
+  <h2 class="section-title">Juguetes para Parejas</h2>
+  <div class="products">
+    <div class="card"><img src="https://via.placeholder.com/300x300?text=Couples"><h3>Juego Íntimo</h3></div>
+    <div class="card"><img src="https://via.placeholder.com/300x300?text=Couples"><h3>Vibrador para Parejas</h3></div>
+  </div>
+</section>
 
-    // Form → WhatsApp + mailto
-    function sendLead(e){
-      e.preventDefault();
-      const fd = new FormData(e.target);
-      const nombre = fd.get('nombre');
-      const email = fd.get('email');
-      const telefono = fd.get('telefono')||'';
-      const plan = fd.get('plan')||'';
-      const mensaje = fd.get('mensaje');
-      const body = `Hola, soy ${nombre}.%0AEmail: ${email}%0AWhatsApp: ${telefono}%0APlan: ${plan}%0AMensaje: ${mensaje}`;
-      window.open(`https://wa.me/${WA}?text=${body}`,'_blank');
-      window.location.href=`mailto:info@gymsport.com?subject=Contacto%20GYMSPORT&body=${body}`;
-      e.target.reset();
-      return false;
-    }
-  </script>
+<section class="mensajes">
+  <p>✨ El placer también es amor propio</p>
+  <p>🔥 Atrévete a explorar nuevas sensaciones</p>
+  <p>💖 Reaviva la chispa de tu relación</p>
+</section>
+
+<section>
+  <h2 class="section-title">Galería</h2>
+  <div class="gallery">
+    <img src="https://via.placeholder.com/400x400">
+    <img src="https://via.placeholder.com/400x400">
+    <img src="https://via.placeholder.com/400x400">
+    <img src="https://via.placeholder.com/400x400">
+  </div>
+</section>
+
+<section id="blog">
+  <h2 class="section-title">Blog Íntimo</h2>
+  <div class="blog">
+    <article>
+      <h3>Artículo más comprado por mujeres</h3>
+      <p>El vibrador femenino es el producto más popular. Rompe mitos, empodera el placer y fortalece la conexión con el cuerpo.</p>
+    </article>
+    <article>
+      <h3>Artículo más comprado por hombres</h3>
+      <p>Los masturbadores masculinos generan curiosidad y temor. Sin embargo, son aliados para mejorar el rendimiento y confianza.</p>
+    </article>
+    <article>
+      <h3>Miedos comunes al comprar juguetes sexuales</h3>
+      <p>Mujeres temen el qué dirán. Hombres temen sentirse reemplazados. La realidad: el placer es complemento, no competencia.</p>
+    </article>
+  </div>
+</section>
+
+<footer id="contacto">
+  <p><strong>Sex&More507</strong></p>
+  <p>Tienda online · Venta contra entrega</p>
+  <p>Oficina de retiro: Edificio Ejecutivo, Piso 4, Calle 50 frente a Tower Bank</p>
+  <p>WhatsApp: 6026-8772 · Email: pedidos@sexmore507.com</p>
+  <p>✨ Vive tu sexualidad con libertad y respeto ✨</p>
+</footer>
+
 </body>
 </html>
