@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIMI VAMVAS | Diseño Industrial • Estilismo • Visión</title>
+    <title>MIMI VAMVAS | Industrial Designer & Model</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta de colores fashion: Negro absoluto, Blanco puro, Rosa Metálico Edgy */
+            /* Paleta de colores fashion: Negro absoluto y Blanco puro */
             --bg-dark: #000000; 
             --bg-card: #111111; 
             --text-light: #ffffff;
             --text-muted: #888888;
-            --accent: #FF3366; /* Rosa Neón/Metálico para chispa edgy */
             --border-color: #222222;
         }
 
@@ -22,7 +21,7 @@
             color: var(--text-light);
             margin: 0;
             padding: 0;
-            line-height: 1.5;
+            line-height: 1.6;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
@@ -48,24 +47,22 @@
             top: 0;
             width: 90%;
             z-index: 1000;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
-            mix-blend-mode: exclusion; /* Efecto moderno cuando pasa sobre imágenes */
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 900;
-            letter-spacing: 3px;
-            background: linear-gradient(135deg, #ffffff 0%, #aaaaaa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: 4px;
+            color: var(--text-light);
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .ig-link {
@@ -77,6 +74,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            transition: color 0.3s;
         }
 
         .ig-link:hover { color: var(--text-light); }
@@ -86,484 +84,271 @@
             background: transparent;
             border: none;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 18px;
             padding: 0 5px;
-            opacity: 0.5;
+            opacity: 0.4;
             transition: opacity 0.3s ease;
         }
-        .btn-lang.active { opacity: 1; filter: drop-shadow(0 0 5px rgba(255,255,255,0.5)); }
+        .btn-lang.active { opacity: 1; filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 120px 20px 90px 20px; /* Padding superior para el header sticky */
+            padding: 140px 20px 90px 20px;
         }
 
-        /* --- HERO SECTION: TEXTO GIGANTE EDITORIAL --- */
+        /* --- HERO SECTION --- */
         .hero-section {
             text-align: center;
             margin-bottom: 80px;
-            padding: 60px 0;
-            position: relative;
         }
 
         .editorial-text {
             font-family: 'Playfair Display', serif;
-            font-size: 10vw; /* Texto GIGANTE que abarca la pantalla */
+            font-size: 11vw;
             font-weight: 800;
             line-height: 0.85;
             letter-spacing: -3px;
-            background: linear-gradient(180deg, #ffffff 0%, #111111 150%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-light);
             text-transform: uppercase;
         }
 
         .hero-subtitle {
-            margin-top: 20px;
-            font-size: 16px;
-            font-weight: 300;
-            letter-spacing: 4px;
+            margin-top: 25px;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 6px;
             color: var(--text-muted);
             text-transform: uppercase;
         }
 
-        /* BANNER DE PAGOS GIGANTE */
-        .payment-banner {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            background: #111111;
-            border: 2px solid var(--border-color);
-            color: var(--text-light);
-            padding: 30px 15px;
-            border-radius: 16px;
+        /* --- INTRO / BIO --- */
+        .bio-section {
             text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 700px;
+            margin: 0 auto 80px auto;
         }
 
-        .payment-title {
-            font-size: 24px;
-            font-weight: 800;
-            display: block;
-            margin-bottom: 12px;
-            color: #ffffff;
-            letter-spacing: 0.5px;
+        .bio-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .bio-text {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* --- COLABORACIONES / MARCAS --- */
+        .brands-section {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 40px 0;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .brands-title {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: #555;
+            margin-bottom: 30px;
             text-transform: uppercase;
         }
 
-        .payment-methods {
-            font-size: 17px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            background: #0a0a0a;
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 8px;
-            color: var(--text-muted);
+        .brands-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
-        /* --- ACORDEÓN DE PRESENTACIÓN (EDGY) --- */
-        .accordion {
+        .brand-name {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* --- SERVICIOS --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .service-card {
             background: var(--bg-card);
+            padding: 40px 30px;
             border-radius: 12px;
-            margin-bottom: 30px;
-            overflow: hidden;
+            text-align: center;
             border: 1px solid var(--border-color);
         }
 
-        .accordion summary {
-            padding: 20px;
-            cursor: pointer;
-            font-weight: 800;
-            color: var(--text-light);
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 16px;
-            text-transform: uppercase;
+        .service-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
             letter-spacing: 1px;
         }
 
-        .accordion summary::after {
-            content: '+';
-            font-size: 18px;
-            color: var(--accent);
-            font-weight: 900;
-        }
-
-        .accordion[open] summary { border-bottom: 1px solid var(--border-color); }
-        .accordion[open] summary::after { content: '-'; }
-
-        .accordion-content {
-            padding: 20px;
-            font-size: 15px;
-            color: var(--text-muted);
-            background: #0d0d0d;
-        }
-
-        .accordion-content p { margin-top: 0; margin-bottom: 12px; text-align: justify; }
-
-        /* --- VIAJA CÓMODO EDITORIAL --- */
-        .card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-        }
-
-        .card h2 {
-            color: var(--text-light);
-            margin-top: 0;
-            font-size: 19px;
-            font-weight: 800;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 12px;
-            margin-bottom: 18px;
-            text-transform: uppercase;
-        }
-
-        .travel-comfort {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .suv-icon {
-            width: 55px;
-            height: 55px;
-            flex-shrink: 0;
-            fill: var(--text-light);
-        }
-
-        /* --- SECCIÓN PORTAFOLIO Y TRABAJOS (MASONRY MODERNO) --- */
-        .section-header-editorial {
-            text-align: left;
-            margin-bottom: 40px;
-            border-left: 5px solid var(--accent);
-            padding-left: 20px;
-        }
-
-        .section-header-editorial h2 {
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 1.1;
-        }
-
-        .section-header-editorial p {
+        .service-card p {
             font-size: 14px;
             color: var(--text-muted);
-            margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        /* ESTRUCTURA TIPO APP PARA LISTAS DE SERVICIOS (CON PRECIOS ANTERIORES) */
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        /* --- PORTAFOLIO EDITORIAL (FASHION GRID) --- */
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        .service-list li {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .portfolio-header h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
         }
 
-        .service-list li:last-child {
-            border-bottom: none;
-        }
-
-        .service-info {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            padding-right: 15px;
-        }
-
-        .service-name {
-            font-weight: 700;
-            color: var(--text-light);
-            font-size: 15px;
-            line-height: 1.3;
-        }
-
-        .service-desc {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 5px;
-            line-height: 1.3;
-        }
-
-        .service-price {
-            font-weight: 900;
-            color: var(--accent);
-            font-size: 21px;
-            white-space: nowrap;
-            text-align: right;
-            font-family: 'Inter', sans-serif; /* Precios limpios */
-        }
-        
-        .service-price small {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-
-        /* CUADROS DE IMÁGENES EQUILIBRADOS Y MODERNOS (FASHION GRID) */
         .fashion-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            margin-bottom: 40px;
+            margin-bottom: 80px;
         }
 
         .grid-item {
             position: relative;
             background: #111;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            border: 1px solid var(--border-color);
         }
 
-        .grid-item.tall { aspect-ratio: 4 / 5; /* Formato vertical fashion */ }
+        .grid-item.tall { aspect-ratio: 3 / 4; }
         .grid-item.square { aspect-ratio: 1 / 1; }
-        .grid-item.wide { grid-column: span 2; aspect-ratio: 16 / 9; }
 
         .grid-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            filter: grayscale(30%);
+            transition: filter 0.5s ease, transform 0.6s ease;
         }
 
-        .grid-item:hover img { transform: scale(1.08); }
+        .grid-item:hover img { 
+            transform: scale(1.05); 
+            filter: grayscale(0%);
+        }
 
         .grid-tag {
             position: absolute;
-            bottom: 15px;
-            left: 15px;
-            background: rgba(0,0,0,0.7);
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.8);
             color: white;
-            padding: 6px 12px;
-            font-size: 11px;
+            padding: 8px 15px;
+            font-size: 10px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            border-radius: 5px;
+            backdrop-filter: blur(5px);
         }
 
-        /* --- SECCIÓN RESEÑA / CREADORA UGC (ESTILO ENTREVISTA VOGUE) --- */
-        .interview-section {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            background: var(--bg-card);
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 80px;
-            border: 1px solid var(--border-color);
+        /* --- CONTACTO / BOOKING --- */
+        .booking-section {
+            background: var(--text-light);
+            color: var(--bg-dark);
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 40px;
         }
 
-        .interview-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--border-color);
-            flex-shrink: 0;
+        .booking-section h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--bg-dark);
         }
 
-        .interview-content {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 20px;
-            color: var(--text-light);
-            line-height: 1.4;
+        .booking-section p {
+            font-size: 15px;
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+            color: #333;
         }
 
-        /* --- BOTONES DE ACCIÓN FASHION --- */
         .btn-action {
             display: inline-block;
-            background-color: transparent;
+            background-color: var(--bg-dark);
             color: var(--text-light);
-            padding: 16px 25px;
-            border-radius: 10px;
+            padding: 18px 40px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-            font-size: 15px;
+            font-weight: 800;
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            transition: transform 0.3s ease;
         }
 
         .btn-action:hover {
-            border-color: var(--text-light);
-            background: var(--bg-card);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
-
-        .btn-action.filled {
-            background-color: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-
-        .btn-action.filled:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-
-        /* NÚMEROS DE EMERGENCIA */
-        .interest-section {
-            background: #070707;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            margin-bottom: 25px;
-        }
-
-        .interest-header {
-            background: #111111;
-            color: white;
-            padding: 14px 20px;
-            font-weight: 700;
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .interest-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 15px;
-        }
-
-        .interest-item {
-            background: #0d0d0d;
-            padding: 12px;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .interest-name { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); }
-        .interest-number { font-size: 18px; color: var(--text-light); font-weight: 900; }
 
         /* FOOTER */
         .footer {
             text-align: center;
-            padding: 25px 0;
+            padding: 30px 0;
             color: var(--text-muted);
-            font-size: 13px;
+            font-size: 12px;
             border-top: 1px solid var(--border-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        .footer strong { color: var(--text-light); display: block; font-size: 14px; margin-bottom: 5px;}
-
-        /* BOTONES FLOTANTES (WIFI Y WHATSAPP) */
-        .floating-container {
-            position: fixed;
-            bottom: 20px;
-            width: calc(100% - 40px);
-            left: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            z-index: 2000;
-            pointer-events: none; /* No interfiere con el scroll */
-        }
-
+        /* WHATSAPP FLOTANTE */
         .whatsapp-float {
-            pointer-events: auto; /* Activa clics de nuevo */
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
             background-color: #25D366;
             color: white;
-            padding: 14px 22px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 14px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
             transition: transform 0.3s ease;
         }
 
-        .whatsapp-float:hover { transform: translateY(-3px) scale(1.05); }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
-        .wifi-float-wrapper {
-            pointer-events: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .wifi-details {
-            display: none;
-            background: rgba(0,0,0,0.9);
-            border: 2px solid #f59e0b;
-            padding: 18px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-            margin-bottom: 12px;
-            font-size: 14px;
-            color: white;
-            min-width: 220px;
-            backdrop-filter: blur(5px);
-        }
-
-        .wifi-details.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        /* Botón WiFi NARANJA LLAMATIVO */
-        .wifi-btn {
-            background-color: #f59e0b; 
-            color: black; /* Contraste */
-            padding: 14px 22px;
-            border-radius: 50px;
-            border: none;
-            font-weight: 800;
-            font-size: 14px;
-            font-family: inherit;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
-            cursor: pointer;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
         @media (max-width: 600px) {
-            .editorial-text { font-size: 15vw; letter-spacing: -2px; }
-            .hero-section { padding: 40px 0; }
-            .interview-section { flex-direction: column; text-align: center; }
+            .editorial-text { font-size: 16vw; letter-spacing: -1px; }
+            .hero-subtitle { font-size: 11px; letter-spacing: 3px; }
             .fashion-grid { grid-template-columns: 1fr; }
-            .interest-grid { grid-template-columns: 1fr; }
-            .whatsapp-float, .wifi-btn { padding: 12px 16px; font-size: 13px; }
+            .brands-grid { gap: 20px; flex-direction: column; }
+            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
         }
     </style>
 </head>
-<body class="lang-es"> <header class="header">
+<body class="lang-es">
+
+    <header class="header">
         <div class="logo">MIMI VAMVAS</div>
         <div class="nav-links">
             <a href="https://instagram.com/mimi_vamvas" target="_blank" class="ig-link">
-                <svg style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3Z"/></svg>
+                <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3Z"/></svg>
                 IG
             </a>
             <button id="btn-es" class="btn-lang active" onclick="setLanguage('es')">🇵🇦</button>
@@ -576,262 +361,88 @@
         <section class="hero-section">
             <h1 class="editorial-text">MIMI<br>VAMVAS</h1>
             <div class="hero-subtitle">
-                <span class="es">Diseño • Estilismo • Visión Fashion</span>
-                <span class="en">Design • Styling • Fashion Vision</span>
+                <span class="es">Industrial Designer • Stylist • Jeweler</span>
+                <span class="en">Industrial Designer • Stylist • Jeweler</span>
             </div>
         </section>
 
-        <div class="payment-banner">
-            <span class="payment-title es">¡Aceptamos pagos con!</span>
-            <span class="payment-title en">We accept payments with!</span>
-            <div class="payment-methods es">💳 Visa, Mastercard | 📱 Yappi | 💵 Efectivo</div>
-            <div class="payment-methods en">💳 Visa, Mastercard | 📱 Yappi | 💵 Cash</div>
-        </div>
+        <section class="bio-section">
+            <div class="bio-quote">"We come like water and go like wind."</div>
+            <p class="bio-text es">Creadora de contenido, modelo y diseñadora con base en Panamá. Fusiono la estética industrial con el estilismo urbano para crear visuales con actitud. Una propuesta fresca, auténtica y atrevida para marcas que buscan destacar.</p>
+            <p class="bio-text en">Content creator, model, and designer based in Panama. I fuse industrial aesthetics with urban styling to create visuals with attitude. A fresh, authentic, and bold proposal for brands looking to stand out.</p>
+        </section>
 
-        <details class="accordion">
-            <summary>
-                <span class="es">¡Bienvenidos! Conoce a Mimi V.</span>
-                <span class="en">Welcome! Get to know Mimi V.</span>
-            </summary>
-            <div class="accordion-content">
-                <div class="es">
-                    <p>Mimi Vamvas es una fuerza creativa multidisciplinaria radicada en Ciudad de Panamá. Su perspectiva única fusiona la precisión técnica del Diseño Industrial con la visión 'edgy' y auténtica del Estilismo de Moda y la Joyería.</p>
-                    <p>Como creadora de contenido, ha colaborado con marcas globales líderes como <strong>Adidas y Smirnoff</strong>, aportando una estética urbana, auténtica y siempre 'fashion-forward'. Es una de las caras más frescas y con más personalidad de Panamá.</p>
-                    <p style="text-align: center; font-weight: 800; margin-top: 15px; color: var(--accent);"> Let's Create. 🤝</p>
-                </div>
-                <div class="en">
-                    <p>Mimi Vamvas is a multidisciplinary creative force based in Panama City. Her unique perspective fuses the technical precision of Industrial Design with the edgy and authentic vision of Fashion Styling and Jewelry.</p>
-                    <p>As a content creator, she has collaborated with leading global brands such as <strong>Adidas and Smirnoff</strong>, contributing an urban, authentic, and always fashion-forward aesthetic. She is one of Panama's freshest and most personality-driven faces.</p>
-                    <p style="text-align: center; font-weight: 800; margin-top: 15px; color: var(--accent);"> Let's Create. 🤝</p>
-                </div>
+        <section class="brands-section">
+            <div class="brands-title es">Marcas & Colaboraciones</div>
+            <div class="brands-title en">Brands & Collaborations</div>
+            <div class="brands-grid">
+                <div class="brand-name">Adidas</div>
+                <div class="brand-name">Smirnoff</div>
+                <div class="brand-name">Maria Joyería</div>
             </div>
-        </details>
+        </section>
 
-        <div class="card">
-            <h2>
-                <span class="es">Viaja en este vehículo Cómodo</span>
-                <span class="en">Travel in this Comfortable vehicle</span>
-            </h2>
-            <div class="travel-comfort">
-                <svg class="suv-icon" viewBox="0 0 640 512"><path d="M544 192h-16.1l-34.1-68.1c-14-27.9-42.3-46.9-74.8-46.9H160c-32.5 0-60.8 19-74.8 46.9L51.1 192H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h32c0 26.5 21.5 48 48 48s48-21.5 48-48h192c0 26.5 21.5 48 48 48s48-21.5 48-48h32c26.5 0 48-21.5 48-48V240c0-26.5-21.5-48-48-48zM128 448c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm160-160H112l32-64h144zm0 64H112l32-64h144zm192 128c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32zm32-128H352l32-64h144zm0 64H352l32-64h144z"/></svg>
-                <p style="margin: 0; font-size: 14px;">
-                    <span class="es"><strong>Uber Confort / Campañas: Toyota Corolla 2025.</strong> Vehículo moderno, suspensión silenciosa y máximo confort para traslados y producción.</span>
-                    <span class="en"><strong>Uber Comfort / Campaigns: 2025 Toyota Corolla.</strong> Modern vehicle, silent suspension, and maximum comfort for transfers and production.</span>
-                </p>
+        <section class="services-grid">
+            <div class="service-card">
+                <h3><span class="es">Modelaje Comercial</span><span class="en">Commercial Modeling</span></h3>
+                <p class="es">Campañas fotográficas, lookbooks y editoriales de moda con dirección de arte.</p>
+                <p class="en">Photographic campaigns, lookbooks, and fashion editorials with art direction.</p>
             </div>
-        </div>
+            <div class="service-card">
+                <h3><span class="es">Contenido UGC</span><span class="en">UGC Content</span></h3>
+                <p class="es">Videos cortos y dinámicos para redes sociales (TikTok, Reels) mostrando productos o experiencias.</p>
+                <p class="en">Short, dynamic videos for social media (TikTok, Reels) showcasing products or experiences.</p>
+            </div>
+            <div class="service-card">
+                <h3><span class="es">Estilismo & Diseño</span><span class="en">Styling & Design</span></h3>
+                <p class="es">Asesoría de imagen, styling para producciones y diseño de joyería exclusiva.</p>
+                <p class="en">Image consulting, styling for productions, and exclusive jewelry design.</p>
+            </div>
+        </section>
 
-        <div class="section-header-editorial">
-            <h2>
-                <span class="es">Visuales • Campañas • Estilismo</span>
-                <span class="en">Visuals • Campaigns • Styling</span>
-            </h2>
-            <p>
-                <span class="es">Portfolio Destacado (Prueba Visual)</span>
-                <span class="en">Featured Portfolio (Visual Test)</span>
-            </p>
+        <div class="portfolio-header">
+            <h2><span class="es">Portafolio</span><span class="en">Portfolio</span></h2>
         </div>
 
         <div class="fashion-grid">
             <div class="grid-item tall">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" alt="Fashion Campaign">
-                <span class="grid-tag es">Modelaje Urbano</span><span class="grid-tag en">Urban Modeling</span>
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" alt="Fashion Editorial">
+                <span class="grid-tag es">Editorial / Moda</span><span class="grid-tag en">Editorial / Fashion</span>
             </div>
             <div class="grid-item square">
-                <img src="https://images.unsplash.com/photo-1509631179647-0c11caa40940?q=80&w=800&auto=format&fit=crop" alt="Style Details">
-                <span class="grid-tag es">Estilismo y Detalles</span><span class="grid-tag en">Styling & Details</span>
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop" alt="Streetwear Style">
+                <span class="grid-tag">Streetwear</span>
             </div>
             <div class="grid-item tall">
-                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop" alt="Commercial Shoot">
-                <span class="grid-tag es">Creación UGC</span><span class="grid-tag en">UGC Creation</span>
+                <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?q=80&w=800&auto=format&fit=crop" alt="Commercial Video UGC">
+                <span class="grid-tag es">Videos Comerciales</span><span class="grid-tag en">Commercial Videos</span>
             </div>
             <div class="grid-item square">
-                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop" alt="Adidas Collaboration vibe">
-                <span class="grid-tag es">Campaña ADIDAS (vibe)</span><span class="grid-tag en">ADIDAS Campaign (vibe)</span>
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop" alt="Jewelry Details">
+                <span class="grid-tag es">Joyería & Detalles</span><span class="grid-tag en">Jewelry & Details</span>
             </div>
         </div>
 
-        <div class="card">
-            <h2 style="margin-bottom: 5px;">
-                <span class="es">🛻 Transporte y Tours</span>
-                <span class="en">🛻 Transport & Tours</span>
-            </h2>
+        <section class="booking-section">
+            <h2>Let's Work.</h2>
+            <p class="es">¿Buscas una imagen fresca y profesional para tu próxima campaña en Panamá? Escríbeme para consultar disponibilidad y tarifas.</p>
+            <p class="en">Looking for a fresh and professional image for your next campaign in Panama? Write to me to check availability and rates.</p>
             
-            <ul class="service-list" style="margin-bottom: 20px;">
-                <li>
-                    <div class="service-info">
-                        <span class="service-name es">Traslado Aeropuerto</span><span class="service-name en">Airport Transfer</span>
-                        <span class="service-desc es">Vehículo Confort. Retorno a ciudad $10</span><span class="service-desc en">Comfort Vehicle. City return $10</span>
-                    </div>
-                    <span class="service-price">$25 <small>+ fee</small></span>
-                </li>
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Isla Perico (Amador)</span>
-                        <span class="service-desc es">Ida</span><span class="service-desc en">One way</span>
-                    </div>
-                    <span class="service-price">$8</span>
-                </li>
-                <li>
-                    <div class="service-info">
-                        <span class="service-name es">Esclusas Miraflores</span><span class="service-name en">Miraflores Locks</span>
-                        <span class="service-desc es">Ida y retorno</span><span class="service-desc en">Round trip</span>
-                    </div>
-                    <span class="service-price">$16</span>
-                </li>
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Veracruz</span>
-                        <span class="service-desc es">Ida y vuelta</span><span class="service-desc en">Round trip</span>
-                    </div>
-                    <span class="service-price">$22</span>
-                </li>
-                <li>
-                    <div class="service-info">
-                        <span class="service-name es">Colón 2000 o Zona Libre</span><span class="service-name en">Colon 2000 / Free Zone</span>
-                        <span class="service-desc es">Desde</span><span class="service-desc en">From</span>
-                    </div>
-                    <span class="service-price">$85</span>
-                </li>
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Valle de Antón</span>
-                        <span class="service-desc es">Desde</span><span class="service-desc en">From</span>
-                    </div>
-                    <span class="service-price">$110</span>
-                </li>
-                <li>
-                    <div class="service-info">
-                        <span class="service-name es">Día Playa Sta. Clara</span><span class="service-name en">Sta. Clara Beach Day</span>
-                        <span class="service-desc es">Desde</span><span class="service-desc en">From</span>
-                    </div>
-                    <span class="service-price">$125</span>
-                </li>
-                <li>
-                    <div class="service-info">
-                        <span class="service-name es">Tours Chiriquí (2-3 d.)</span><span class="service-name en">Chiriquí Tours (2-3 d.)</span>
-                        <span class="service-desc es">+ Combustible, hospedaje y comida</span><span class="service-desc en">+ Fuel, lodging, and food</span>
-                    </div>
-                    <span class="service-price">$80 <small class="es">/día</small><small class="en">/day</small></span>
-                </li>
-                <li>
-                    <div class="service-info">
-                        <span class="service-name">Bocas del Toro</span>
-                        <span class="service-desc es">+ Combustible y costos</span><span class="service-desc en">+ Fuel and costs</span>
-                    </div>
-                    <span class="service-price">$80 <small class="es">/día</small><small class="en">/day</small></span>
-                </li>
-                <li>
-                    <div class="service-info">
-                        <span class="service-name es">Traslado Pesado 4x4 (Carga)</span><span class="service-name en">Heavy 4x4 Transfer (Cargo)</span>
-                        <span class="service-desc es">En ciudad. Desde</span><span class="service-desc en">In city. From</span>
-                    </div>
-                    <span class="service-price">$25</span>
-                </li>
-            </ul>
+            <a href="https://wa.me/50763356804?text=Hola%20Mimi,%20me%20gustaría%20saber%20más%20sobre%20tus%20tarifas%20para%20creación%20de%20contenido" class="btn-action" target="_blank">
+                <span class="es">Contactar por WhatsApp</span>
+                <span class="en">Contact via WhatsApp</span>
+            </a>
+        </section>
 
-            <details class="accordion">
-                <summary>
-                    <span class="es">💆‍♂️ Bienestar y Estética</span>
-                    <span class="en">💆‍♂️ Wellness & Aesthetics</span>
-                </summary>
-                <div class="accordion-content">
-                    <ul class="service-list">
-                        <li>
-                            <div class="service-info"><span class="service-name es">Masajes Relajantes</span><span class="service-name en">Relaxing Massages</span><span class="service-desc">30 min</span></div>
-                            <span class="service-price">$35</span>
-                        </li>
-                        <li>
-                            <div class="service-info"><span class="service-name es">Masajes Relajantes</span><span class="service-name en">Relaxing Massages</span><span class="service-desc">60 min</span></div>
-                            <span class="service-price">$65</span>
-                        </li>
-                        <li>
-                            <div class="service-info"><span class="service-name es">Limpiezas faciales</span><span class="service-name en">Facial Cleansing</span><span class="service-desc es">Desde</span><span class="service-desc en">From</span></div>
-                            <span class="service-price">$35</span>
-                        </li>
-                        <li>
-                            <div class="service-info"><span class="service-name es">Masaje reductor con hidrolipoclasia</span><span class="service-name en">Reducing massage w/ hydrolipoclasia</span><span class="service-desc es">bajar rápido</span><span class="service-desc en">fast slim</span></div>
-                            <span class="service-price">$200</span>
-                        </li>
-                    </ul>
-                </div>
-            </details>
-        </div>
-
-        <div class="interview-section">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop" alt="Mimi Interview vibe" class="interview-image">
-            <div class="interview-content">
-                <span class="es">"La moda no es lo que vistes, es la energía que proyectas. Busco marcas que no tengan miedo de ser auténticas, urbanas y atrevidas. Vamos a romper las reglas juntos."</span>
-                <span class="en">"Fashion isn't what you wear, it's the energy you project. I look for brands that aren't afraid to be authentic, urban, and bold. Let's break the rules together."</span>
-            </div>
-        </div>
-
-        <div class="card" style="text-align: center;">
-            <h2>
-                <span class="es">Consulta tarifas de Campañas</span>
-                <span class="en">Check Campaign Rates</span>
-            </h2>
-            <p style="font-size: 14px; margin-bottom: 20px;">
-                <span class="es">Me puedes chatear con tranquilidad y confianza, te atenderé cordialmente. No siempre se gana dinero, también se gana amistad y gratitud.<br><br><em>Si hablas español o si hablas poquito español me llamas o escribes.</em></span>
-                <span class="en">You can chat with me with completeness and trust. I will assist you cordially. Money is not always earned; friendship and gratitude are also earned.<br><br><em>If you speak English or Spanish, call or text me.</em></span>
-            </p>
-            <a href="https://wa.me/50763356804" class="btn-action btn-outline es" target="_blank">¿Deseas chatear con alguien?</a>
-            <a href="https://wa.me/50763356804" class="btn-action btn-outline en" target="_blank">Do you want to chat with someone?</a>
-            <a href="https://wa.me/50763356804" class="btn-action filled es" target="_blank" style="margin-top: 10px; background-color: var(--primary);">Hablar con Gasper / Mimi</a>
-            <a href="https://wa.me/50763356804" class="btn-action filled en" target="_blank" style="margin-top: 10px; background-color: var(--primary);">Talk to Gasper / Mimi</a>
-        </div>
-
-        <div class="interest-section">
-            <div class="interest-header">
-                <span class="es">📱 Números de Interés (Panamá)</span>
-                <span class="en">📱 Interest Numbers (Panama)</span>
-            </div>
-            <div class="interest-grid">
-                <div class="interest-item"><span class="interest-name es">Policía Nacional</span><span class="interest-name en">National Police</span><span class="interest-number">104</span></div>
-                <div class="interest-item"><span class="interest-name es">Ambulancia (SUME)</span><span class="interest-name en">Ambulance</span><span class="interest-number">911</span></div>
-                <div class="interest-item"><span class="interest-name es">Bomberos</span><span class="interest-name en">Fire Dept</span><span class="interest-number">103</span></div>
-                <div class="interest-item"><span class="interest-name es">Protección Civil</span><span class="interest-name en">Civil Protection</span><span class="interest-number">335</span></div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <strong>MIMI VAMVAS • Minivacaciones & Destinos</strong>
-            <span class="es">Para llamadas directas urgentes: 6478-7049</span>
-            <span class="en">For urgent direct calls: 6478-7049</span>
-        </div>
+        <footer class="footer">
+            <p>MIMI VAMVAS © 2026 | CIUDAD DE PANAMÁ</p>
+        </footer>
 
     </div>
 
-    <div class="floating-container">
-        <div class="wifi-float-wrapper">
-            <div id="wifi-info" class="wifi-details">
-                <strong style="color: var(--text-light); font-size: 15px; display: block; margin-bottom: 5px;">
-                    <span class="es">📶 WiFi Gratis en este vehículo</span>
-                    <span class="en">📶 Free WiFi in this vehicle</span>
-                </strong>
-                <div style="margin-top: 8px;">
-                    <span style="color: var(--text-muted); font-size: 13px;"><span class="es">Red:</span><span class="en">Network:</span></span> 
-                    <strong style="color: #f59e0b;">Wifi- Gratis</strong><br>
-                    <span style="color: var(--text-muted); font-size: 13px;"><span class="es">Clave:</span><span class="en">Password:</span></span> 
-                    <strong style="color: var(--accent);">12345678</strong>
-                </div>
-                <p style="margin-top: 10px; font-style: italic; color: var(--text-muted); font-size: 12px; text-align: center;">
-                    <span class="es">(Si necesitas una laptop me avisas)</span>
-                    <span class="en">(Let me know if you need a laptop)</span>
-                </p>
-            </div>
-            <button class="wifi-btn" onclick="document.getElementById('wifi-info').classList.toggle('active')">
-                <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-4.6-4.6l1.4 1.4c1.8-1.8 4.7-1.8 6.5 0l1.4-1.4c-2.5-2.5-6.7-2.5-9.3 0zm-4.2-4.2l1.4 1.4c4.1-4.1 10.7-4.1 14.8 0l1.4-1.4c-4.9-4.9-12.8-4.9-17.6 0zm-4.3-4.3l1.4 1.4c6.4-6.4 16.8-6.4 23.2 0l1.4-1.4c-7.2-7.2-18.9-7.2-26 0z"/></svg>
-                WiFi
-            </button>
-        </div>
-
-        <a href="https://wa.me/50763356804" class="whatsapp-float" target="_blank">
-            <svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2m0 1.88c2.15 0 4.17.84 5.7 2.36a8.03 8.03 0 0 1 2.33 5.67c0 4.44-3.61 8.05-8.03 8.05-1.46 0-2.89-.4-4.13-1.15l-.3-.18-3.07.81.82-2.99-.19-.31a8.04 8.04 0 0 1-1.18-4.22c0-4.44 3.6-8.04 8.05-8.04m-3.46 4.3c-.13 0-.31.05-.48.23-.17.18-.65.63-.65 1.54 0 .92.67 1.8.76 1.93.09.12 1.3 2.05 3.19 2.87.45.2.8.31 1.07.4.45.14.86.12 1.18.07.36-.05 1.1-.45 1.26-.88.15-.43.15-.81.11-.88-.04-.07-.16-.12-.33-.21-.17-.08-1.1-.54-1.27-.6-.17-.06-.29-.08-.42.08-.12.17-.48.6-.59.72-.11.13-.22.14-.39.06-.17-.08-.71-.26-1.35-.83-.5-.45-.83-.99-.93-1.16-.1-.17-.01-.26.08-.35.08-.08.17-.2.25-.29.08-.1.11-.17.16-.29.05-.12.03-.23-.01-.32-.04-.09-.42-1.01-.58-1.38-.15-.37-.32-.32-.42-.32z"/></svg>
-            <span class="es">Chat</span>
-            <span class="en">Chat</span>
-        </a>
-    </div>
+    <a href="https://wa.me/50763356804" class="whatsapp-float" target="_blank" title="Chat">
+        <svg style="width:30px;height:30px" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2m0 1.88c2.15 0 4.17.84 5.7 2.36a8.03 8.03 0 0 1 2.33 5.67c0 4.44-3.61 8.05-8.03 8.05-1.46 0-2.89-.4-4.13-1.15l-.3-.18-3.07.81.82-2.99-.19-.31a8.04 8.04 0 0 1-1.18-4.22c0-4.44 3.6-8.04 8.05-8.04m-3.46 4.3c-.13 0-.31.05-.48.23-.17.18-.65.63-.65 1.54 0 .92.67 1.8.76 1.93.09.12 1.3 2.05 3.19 2.87.45.2.8.31 1.07.4.45.14.86.12 1.18.07.36-.05 1.1-.45 1.26-.88.15-.43.15-.81.11-.88-.04-.07-.16-.12-.33-.21-.17-.08-1.1-.54-1.27-.6-.17-.06-.29-.08-.42.08-.12.17-.48.6-.59.72-.11.13-.22.14-.39.06-.17-.08-.71-.26-1.35-.83-.5-.45-.83-.99-.93-1.16-.1-.17-.01-.26.08-.35.08-.08.17-.2.25-.29.08-.1.11-.17.16-.29.05-.12.03-.23-.01-.32-.04-.09-.42-1.01-.58-1.38-.15-.37-.32-.32-.42-.32z"/></svg>
+    </a>
 
     <script>
         function setLanguage(lang) {
