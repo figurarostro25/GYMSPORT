@@ -1,245 +1,402 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sex&More507 | Tienda Íntima Online</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valeria Studio | Modelo Comercial Panamá</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            /* Degradado Rose Gold / Fashion */
+            --gradient-accent: linear-gradient(135deg, #d4af37 0%, #ffc3a0 100%);
+            --accent-solid: #e8b885;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#0b0b0b;color:#fff}
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin: 0;
+        }
 
-/* HEADER */
-header{
-  background:#000;
-  padding:15px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:999;
-}
-.logo{font-size:30px;font-weight:700;color:#ff2f92}
-nav a{
-  margin-left:18px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:500;
-}
-.pedidos{
-  background:#ff2f92;
-  padding:10px 18px;
-  border-radius:30px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-}
+        /* --- NAVEGACIÓN --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: absolute;
+            top: 0;
+            width: 90%;
+            z-index: 10;
+        }
 
-/* SLIDER */
-.slider{
-  height:85vh;
-  background:url("https://via.placeholder.com/1600x900/1a1a1a/ff2f92?text=Placer+Sin+Tabúes") center/cover;
-  display:flex;
-  align-items:center;
-  padding:60px;
-}
-.slider h1{font-size:50px;max-width:650px}
-.slider p{margin-top:15px;font-size:20px;color:#f2c9da}
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-/* SECCIONES */
-section{padding:80px 40px}
-.titulo{
-  text-align:center;
-  font-size:38px;
-  margin-bottom:50px;
-  color:#ff2f92;
-}
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+        }
 
-/* GRID PRODUCTOS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:30px;
-}
-.card{
-  background:#1a1a1a;
-  border-radius:18px;
-  padding:20px;
-  text-align:center;
-  transition:.3s;
-}
-.card:hover{transform:translateY(-6px)}
-.card img{width:100%;border-radius:12px}
-.card h3{margin:15px 0 5px;font-size:18px}
-.price{color:#ff2f92;font-weight:600}
+        /* Capa oscura sobre la imagen para que el texto se lea bien */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 100%);
+            z-index: 1;
+        }
 
-/* MENSAJES */
-.mensajes{
-  background:#111;
-  text-align:center;
-}
-.mensajes p{
-  font-size:24px;
-  margin:25px 0;
-  color:#f5cde1;
-}
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
 
-/* BLOG */
-.blog{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:30px;
-}
-.blog article{
-  background:#1a1a1a;
-  padding:30px;
-  border-radius:18px;
-}
-.blog h3{color:#ff2f92;margin-bottom:10px}
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
 
-/* GALERIA */
-.galeria{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
-}
-.galeria img{width:100%;border-radius:15px}
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
 
-/* FOOTER */
-footer{
-  background:#000;
-  padding:60px 40px;
-  text-align:center;
-}
-footer p{margin:8px 0;color:#ccc}
+        .btn-primary {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
 
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  right:20px;
-  top:50%;
-  transform:translateY(-50%);
-  background:#25d366;
-  color:#fff;
-  padding:15px 18px;
-  border-radius:50px;
-  font-weight:600;
-  text-decoration:none;
-  z-index:1000;
-}
-</style>
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* --- SECCIÓN SOBRE MÍ Y STATS --- */
+        .section {
+            padding: 80px 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--text-light);
+        }
+
+        .section-title span {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        /* Comp Card / Stats */
+        .model-stats {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        .stat-name { font-weight: 600; color: var(--accent-solid); }
+        .stat-value { color: var(--text-light); }
+
+        /* --- SERVICIOS --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 35px 25px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-solid);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* --- PORTAFOLIO / GALERÍA --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/5; /* Formato retrato para moda */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* --- CONTACTO --- */
+        .contact-section {
+            text-align: center;
+            background: var(--bg-card);
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 80px;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        /* --- BOTÓN WHATSAPP FLOTANTE --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        /* Responsividad para móviles */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 38px; }
+            .about-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .section { padding: 50px 5%; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-  <div class="logo">Sex&More507</div>
-  <nav>
-    <a href="#damas">Damas</a>
-    <a href="#caballeros">Caballeros</a>
-    <a href="#parejas">Parejas</a>
-    <a href="#blog" class="pedidos">Pedidos</a>
-  </nav>
-</header>
+    <nav class="navbar">
+        <div class="logo">Valeria M.</div>
+    </nav>
 
-<a class="whatsapp" href="https://wa.me/50760268772">💬 WhatsApp</a>
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Valeria Miranda</h1>
+            <p>Modelo Comercial & Creadora UGC</p>
+            <a href="#contacto" class="btn-primary">Cotizar Proyecto</a>
+        </div>
+    </header>
 
-<section class="slider">
-  <div>
-    <h1>Explora tu intimidad con libertad</h1>
-    <p>Tienda online · Discreción absoluta · Venta contra entrega en oficina</p>
-  </div>
-</section>
+    <section class="section" id="sobre-mi">
+        <h2 class="section-title">Sobre <span>Mí</span></h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>¡Hola! Soy Valeria, modelo comercial y presentadora radicada en la hermosa <strong>Ciudad de Panamá</strong>. Me apasiona el mundo de la moda, el cuidado personal y ayudar a las marcas a conectar con su audiencia de una manera auténtica y elegante.</p>
+                <p>Tengo experiencia protagonizando campañas de fotografía para tiendas de ropa, boutiques, y grabando contenido dinámico en video para redes sociales mostrando la experiencia de visitar comercios locales.</p>
+            </div>
+            
+            <div class="model-stats">
+                <h3 style="font-family: 'Montserrat'; font-size: 18px; text-align: center; margin-bottom: 10px;">Perfil Profesional</h3>
+                <div class="stat-item">
+                    <span class="stat-name">Estatura</span>
+                    <span class="stat-value">1.72 m</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-name">Talla de Ropa</span>
+                    <span class="stat-value">S / M</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-name">Calzado</span>
+                    <span class="stat-value">38</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-name">Color de Cabello</span>
+                    <span class="stat-value">Castaño Oscuro</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-name">Color de Ojos</span>
+                    <span class="stat-value">Café</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2 class="titulo">🔥 Ofertas Especiales</h2>
-  <div class="grid">
-    <div class="card"><img src="https://via.placeholder.com/300?text=Vibrador"><h3>Vibrador Silencioso</h3><p class="price">$29.99</p></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Lubricante"><h3>Lubricante Premium</h3><p class="price">$14.99</p></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Anillo"><h3>Anillo Estimulante</h3><p class="price">$12.99</p></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Aceite"><h3>Aceite Afrodisíaco</h3><p class="price">$10.99</p></div>
-  </div>
-</section>
+    <section class="section">
+        <h2 class="section-title">Lo que <span>Hago</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📸</div>
+                <h3>Modelaje Comercial</h3>
+                <p>Sesiones fotográficas para catálogos de ropa, marcas de belleza, accesorios y campañas publicitarias.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Videos de Comercios</h3>
+                <p>Visito tu tienda, restaurante o negocio y grabo videos estilo vlog/recorrido mostrando lo mejor de tus productos.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Creadora UGC</h3>
+                <p>Generación de contenido orgánico (User Generated Content) para TikTok e Instagram Reels para conectar con clientes.</p>
+            </div>
+        </div>
+    </section>
 
-<section id="damas">
-  <h2 class="titulo">💖 Juguetes para Damas</h2>
-  <div class="grid">
-    <div class="card"><img src="https://via.placeholder.com/300?text=Estimulador"><h3>Estimulador Íntimo</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Bala"><h3>Bala Vibradora</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Masajeador"><h3>Masajeador Corporal</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Vibrador+Pro"><h3>Vibrador Profesional</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Bolitas"><h3>Bolitas Kegel</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Lencería"><h3>Lencería Sensual</h3></div>
-  </div>
-</section>
+    <section class="section">
+        <h2 class="section-title">Mi <span>Portafolio</span></h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" alt="Fashion">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop" alt="Street Style">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1485230405346-71acb9518d9c?q=80&w=800&auto=format&fit=crop" alt="Comercial">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1509631179647-0c11caa40940?q=80&w=800&auto=format&fit=crop" alt="Outfit">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop" alt="Shopping">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" alt="Beauty">
+            </div>
+        </div>
+    </section>
 
-<section id="caballeros">
-  <h2 class="titulo">🔥 Juguetes para Caballeros</h2>
-  <div class="grid">
-    <div class="card"><img src="https://via.placeholder.com/300?text=Masturbador"><h3>Masturbador Masculino</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Anillo+Pro"><h3>Anillo Retardante</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Gel"><h3>Gel Retardante</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Funda"><h3>Funda Texturizada</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Bomba"><h3>Bomba de Vacío</h3></div>
-  </div>
-</section>
+    <section class="section" id="contacto">
+        <div class="contact-section">
+            <h2 class="section-title" style="margin-bottom: 20px;">Trabajemos <span>Juntos</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">¿Tienes una marca o un negocio en Panamá y quieres darle una imagen fresca y profesional? Contáctame para solicitar mi tarifario.</p>
+            <a href="https://wa.me/50760000000?text=Hola%20Valeria,%20me%20gustaría%20información%20sobre%20tus%20servicios%20de%20modelaje" class="btn-primary" target="_blank" style="font-size: 16px;">📲 Escribir al WhatsApp</a>
+        </div>
+    </section>
 
-<section id="parejas">
-  <h2 class="titulo">💞 Juguetes para Parejas</h2>
-  <div class="grid">
-    <div class="card"><img src="https://via.placeholder.com/300?text=Juego"><h3>Juego Erótico</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Vibrador+Pareja"><h3>Vibrador para Parejas</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Aceite+Pareja"><h3>Aceite para Masajes</h3></div>
-    <div class="card"><img src="https://via.placeholder.com/300?text=Dados"><h3>Dados Sensuales</h3></div>
-  </div>
-</section>
+    <footer class="footer">
+        <p>Valeria Miranda © 2026 | Ciudad de Panamá, Panamá</p>
+    </footer>
 
-<section class="mensajes">
-  <p>✨ El placer también es bienestar emocional</p>
-  <p>🔥 Atrévete a salir de la rutina</p>
-  <p>💖 Amar tu cuerpo es parte del placer</p>
-</section>
-
-<section>
-  <h2 class="titulo">📸 Galería</h2>
-  <div class="galeria">
-    <img src="https://via.placeholder.com/400">
-    <img src="https://via.placeholder.com/400">
-    <img src="https://via.placeholder.com/400">
-    <img src="https://via.placeholder.com/400">
-    <img src="https://via.placeholder.com/400">
-    <img src="https://via.placeholder.com/400">
-  </div>
-</section>
-
-<section id="blog">
-  <h2 class="titulo">📖 Blog & Consejos</h2>
-  <div class="blog">
-    <article>
-      <h3>Producto más comprado por mujeres</h3>
-      <p>Los vibradores lideran las ventas porque ayudan a conocer el cuerpo, romper tabúes y fortalecer la autoestima.</p>
-    </article>
-    <article>
-      <h3>Producto más comprado por hombres</h3>
-      <p>Los masturbadores masculinos son populares aunque generan temor inicial. Son aliados del autocuidado.</p>
-    </article>
-    <article>
-      <h3>¿Qué temen comprar mujeres y hombres?</h3>
-      <p>Mujeres: ser juzgadas. Hombres: perder seguridad. La realidad: el placer es aprendizaje y conexión.</p>
-    </article>
-  </div>
-</section>
-
-<footer>
-  <p><strong>Sex&More507</strong></p>
-  <p>Tienda online · Venta contra entrega</p>
-  <p>Oficina de retiro: Edificio Ejecutivo, Piso 4, Calle 50 frente a Tower Bank</p>
-  <p>WhatsApp: 6026-8772</p>
-  <p>✨ Vive tu sexualidad con respeto, confianza y libertad ✨</p>
-</footer>
+    <a href="https://wa.me/50760000000" class="whatsapp-float" target="_blank" title="Chat por WhatsApp">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2m0 1.88c2.15 0 4.17.84 5.7 2.36a8.03 8.03 0 0 1 2.33 5.67c0 4.44-3.61 8.05-8.03 8.05-1.46 0-2.89-.4-4.13-1.15l-.3-.18-3.07.81.82-2.99-.19-.31a8.04 8.04 0 0 1-1.18-4.22c0-4.44 3.6-8.04 8.05-8.04m-3.46 4.3c-.13 0-.31.05-.48.23-.17.18-.65.63-.65 1.54 0 .92.67 1.8.76 1.93.09.12 1.3 2.05 3.19 2.87.45.2.8.31 1.07.4.45.14.86.12 1.18.07.36-.05 1.1-.45 1.26-.88.15-.43.15-.81.11-.88-.04-.07-.16-.12-.33-.21-.17-.08-1.1-.54-1.27-.6-.17-.06-.29-.08-.42.08-.12.17-.48.6-.59.72-.11.13-.22.14-.39.06-.17-.08-.71-.26-1.35-.83-.5-.45-.83-.99-.93-1.16-.1-.17-.01-.26.08-.35.08-.08.17-.2.25-.29.08-.1.11-.17.16-.29.05-.12.03-.23-.01-.32-.04-.09-.42-1.01-.58-1.38-.15-.37-.32-.32-.42-.32z"/></svg>
+    </a>
 
 </body>
 </html>
