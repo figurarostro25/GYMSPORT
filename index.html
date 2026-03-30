@@ -3,32 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valeria Studio | Modelo Comercial Panamá</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <title>MIMI VAMVAS | Stylist, Model & Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0a0a0a;
-            --bg-card: #141414;
-            --text-light: #f3f4f6;
-            --text-muted: #9ca3af;
-            /* Degradado Rose Gold / Fashion */
-            --gradient-accent: linear-gradient(135deg, #d4af37 0%, #ffc3a0 100%);
-            --accent-solid: #e8b885;
+            --bg-color: #fcfcfc; /* Blanco roto, casi gris perla */
+            --text-main: #111111; /* Negro muy oscuro */
+            --accent: #ff3366; /* Un toque de color vibrante (opcional, se usa poco) */
+            --border-color: #e5e7eb;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.5;
+            overflow-x: hidden;
         }
 
         h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
             margin: 0;
+            text-transform: uppercase;
         }
 
         /* --- NAVEGACIÓN --- */
@@ -36,227 +33,245 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            position: absolute;
+            padding: 25px 5%;
+            position: fixed;
             top: 0;
             width: 90%;
-            z-index: 10;
+            z-index: 100;
+            mix-blend-mode: difference; /* Hace que el logo se vea blanco o negro según el fondo */
+            color: white;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 4px;
         }
 
-        /* --- HERO SECTION --- */
+        .ig-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-bottom: 1px solid white;
+        }
+
+        /* --- HERO / PORTADA EDITORIAL --- */
         .hero {
-            height: 90vh;
+            height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
             text-align: center;
             position: relative;
-            background: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+            /* Foto de reemplazo temporal estilo urbano/cool */
+            background: url('https://images.unsplash.com/photo-1550614000-4b95d4ed47bb?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
         }
 
-        /* Capa oscura sobre la imagen para que el texto se lea bien */
         .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 100%);
-            z-index: 1;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); /* Oscurece un poco la foto */
         }
 
-        .hero-content {
+        .hero-text {
             position: relative;
             z-index: 2;
-            padding: 0 20px;
+            color: white;
+            width: 100%;
         }
 
-        .hero h1 {
-            font-size: 50px;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 12vw; /* Texto GIGANTE que abarca la pantalla */
+            font-weight: 800;
+            line-height: 0.9;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
         }
 
-        .hero p {
-            font-size: 18px;
-            color: var(--text-muted);
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
         }
 
-        .btn-primary {
-            display: inline-block;
-            background: var(--gradient-accent);
-            color: #000;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 14px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(212, 175, 55, 0.4);
-        }
-
-        /* --- SECCIÓN SOBRE MÍ Y STATS --- */
-        .section {
-            padding: 80px 5%;
-            max-width: 1000px;
+        /* --- INTRODUCCIÓN --- */
+        .intro-section {
+            padding: 100px 5%;
+            text-align: center;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-            color: var(--text-light);
-        }
-
-        .section-title span {
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .intro-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            line-height: 1.4;
             font-style: italic;
+            color: var(--text-main);
         }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .about-text p {
-            color: var(--text-muted);
-            font-size: 15px;
-            text-align: justify;
-        }
-
-        /* Comp Card / Stats */
-        .model-stats {
-            background: var(--bg-card);
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .stat-item {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
-        }
-
-        .stat-name { font-weight: 600; color: var(--accent-solid); }
-        .stat-value { color: var(--text-light); }
-
-        /* --- SERVICIOS --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background: var(--bg-card);
-            padding: 35px 25px;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-solid);
-        }
-
-        .service-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .service-card h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            font-family: 'Montserrat', sans-serif;
+        .intro-tags {
+            margin-top: 30px;
+            font-size: 13px;
             font-weight: 600;
+            letter-spacing: 2px;
+            color: #666;
         }
 
-        .service-card p {
-            font-size: 14px;
-            color: var(--text-muted);
+        /* --- COLABORACIONES (Logos de Marcas) --- */
+        .brands-section {
+            padding: 60px 5%;
+            background-color: white;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
         }
 
-        /* --- PORTAFOLIO / GALERÍA --- */
-        .gallery-grid {
+        .brands-title {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .brands-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+
+        .brand-name:hover {
+            color: var(--text-main);
+        }
+
+        /* --- PORTAFOLIO (Estilo Masonry/Grid Desordenado) --- */
+        .portfolio-section {
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            font-size: 40px;
+            font-weight: 900;
+            margin-bottom: 50px;
+            letter-spacing: -1px;
+        }
+
+        .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        .gallery-item {
+        .portfolio-item {
             position: relative;
-            border-radius: 12px;
             overflow: hidden;
-            aspect-ratio: 4/5; /* Formato retrato para moda */
+            background-color: #eee;
         }
 
-        .gallery-item img {
+        /* Variamos las alturas para que se vea como una revista */
+        .item-tall { aspect-ratio: 3/4; }
+        .item-square { aspect-ratio: 1/1; }
+        .item-video { aspect-ratio: 9/16; } /* Formato Reel/TikTok */
+
+        .portfolio-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            filter: grayscale(20%); /* Le da un toque más editorial */
+            transition: filter 0.5s ease, transform 0.5s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.08);
+        .portfolio-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
         }
 
-        /* --- CONTACTO --- */
+        .portfolio-tag {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            color: black;
+            padding: 5px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- CONTACTO / BOOKING --- */
         .contact-section {
+            background-color: var(--text-main);
+            color: white;
+            padding: 100px 5%;
             text-align: center;
-            background: var(--bg-card);
-            padding: 60px 20px;
-            border-radius: 20px;
-            margin-bottom: 80px;
+        }
+
+        .contact-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .contact-desc {
+            font-size: 16px;
+            color: #aaa;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-booking {
+            display: inline-block;
+            background: white;
+            color: black;
+            padding: 18px 40px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-booking:hover {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
         }
 
         /* --- FOOTER --- */
         .footer {
+            background-color: var(--text-main);
+            color: #666;
             text-align: center;
             padding: 30px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-muted);
-            font-size: 13px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            border-top: 1px solid #333;
         }
 
-        /* --- BOTÓN WHATSAPP FLOTANTE --- */
+        /* --- WHATSAPP FLOTANTE --- */
         .whatsapp-float {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             background-color: #25D366;
             color: white;
             width: 60px;
@@ -265,136 +280,91 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
             z-index: 1000;
             transition: transform 0.3s ease;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float svg { width: 35px; height: 35px; }
 
-        .whatsapp-float svg {
-            width: 35px;
-            height: 35px;
-        }
-
-        /* Responsividad para móviles */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 38px; }
-            .about-grid { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-            .section { padding: 50px 5%; }
+            .hero-title { font-size: 15vw; }
+            .intro-text { font-size: 22px; }
+            .section-header { font-size: 30px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">Valeria M.</div>
+        <div class="logo">MIMI VAMVAS</div>
+        <a href="https://instagram.com/mimi_vamvas" target="_blank" class="ig-link">@mimi_vamvas</a>
     </nav>
 
     <header class="hero">
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Valeria Miranda</h1>
-            <p>Modelo Comercial & Creadora UGC</p>
-            <a href="#contacto" class="btn-primary">Cotizar Proyecto</a>
+        <div class="hero-text">
+            <h1 class="hero-title">MIMI<br>VAMVAS</h1>
+            <div class="hero-subtitle">Stylist • Creator • Jeweler</div>
         </div>
     </header>
 
-    <section class="section" id="sobre-mi">
-        <h2 class="section-title">Sobre <span>Mí</span></h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>¡Hola! Soy Valeria, modelo comercial y presentadora radicada en la hermosa <strong>Ciudad de Panamá</strong>. Me apasiona el mundo de la moda, el cuidado personal y ayudar a las marcas a conectar con su audiencia de una manera auténtica y elegante.</p>
-                <p>Tengo experiencia protagonizando campañas de fotografía para tiendas de ropa, boutiques, y grabando contenido dinámico en video para redes sociales mostrando la experiencia de visitar comercios locales.</p>
+    <section class="intro-section">
+        <p class="intro-text">"We come like water and go like wind."</p>
+        <div class="intro-tags">
+            DISEÑADORA INDUSTRIAL &nbsp; | &nbsp; MODELO &nbsp; | &nbsp; CREADORA DE CONTENIDO
+        </div>
+    </section>
+
+    <section class="brands-section">
+        <div class="brands-title">PROYECTOS & COLABORACIONES</div>
+        <div class="brands-grid">
+            <div class="brand-name">ADIDAS</div>
+            <div class="brand-name">SMIRNOFF</div>
+            <div class="brand-name">MARIA JOYERÍA</div>
+            <div class="brand-name">EDITORIALS</div>
+        </div>
+    </section>
+
+    <section class="portfolio-section">
+        <h2 class="section-header">PORTFOLIO & CAMPANAS</h2>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item item-tall">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" alt="Fashion Editorial">
+                <div class="portfolio-tag">Campaña Moda</div>
             </div>
             
-            <div class="model-stats">
-                <h3 style="font-family: 'Montserrat'; font-size: 18px; text-align: center; margin-bottom: 10px;">Perfil Profesional</h3>
-                <div class="stat-item">
-                    <span class="stat-name">Estatura</span>
-                    <span class="stat-value">1.72 m</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-name">Talla de Ropa</span>
-                    <span class="stat-value">S / M</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-name">Calzado</span>
-                    <span class="stat-value">38</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-name">Color de Cabello</span>
-                    <span class="stat-value">Castaño Oscuro</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-name">Color de Ojos</span>
-                    <span class="stat-value">Café</span>
-                </div>
+            <div class="portfolio-item item-video">
+                <img src="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?q=80&w=800&auto=format&fit=crop" alt="Video Comercial">
+                <div class="portfolio-tag">Comercial Video</div>
+            </div>
+
+            <div class="portfolio-item item-square">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop" alt="Jewelry Design">
+                <div class="portfolio-tag">Joyería & Estilismo</div>
+            </div>
+
+            <div class="portfolio-item item-tall">
+                <img src="https://images.unsplash.com/photo-1542385262-cdf06b2bf4ce?q=80&w=800&auto=format&fit=crop" alt="Event Coverage">
+                <div class="portfolio-tag">Lifestyle Content</div>
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <h2 class="section-title">Lo que <span>Hago</span></h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">📸</div>
-                <h3>Modelaje Comercial</h3>
-                <p>Sesiones fotográficas para catálogos de ropa, marcas de belleza, accesorios y campañas publicitarias.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎬</div>
-                <h3>Videos de Comercios</h3>
-                <p>Visito tu tienda, restaurante o negocio y grabo videos estilo vlog/recorrido mostrando lo mejor de tus productos.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📱</div>
-                <h3>Creadora UGC</h3>
-                <p>Generación de contenido orgánico (User Generated Content) para TikTok e Instagram Reels para conectar con clientes.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2 class="section-title">Mi <span>Portafolio</span></h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" alt="Fashion">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800&auto=format&fit=crop" alt="Street Style">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1485230405346-71acb9518d9c?q=80&w=800&auto=format&fit=crop" alt="Comercial">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1509631179647-0c11caa40940?q=80&w=800&auto=format&fit=crop" alt="Outfit">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop" alt="Shopping">
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" alt="Beauty">
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="contacto">
-        <div class="contact-section">
-            <h2 class="section-title" style="margin-bottom: 20px;">Trabajemos <span>Juntos</span></h2>
-            <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">¿Tienes una marca o un negocio en Panamá y quieres darle una imagen fresca y profesional? Contáctame para solicitar mi tarifario.</p>
-            <a href="https://wa.me/50760000000?text=Hola%20Valeria,%20me%20gustaría%20información%20sobre%20tus%20servicios%20de%20modelaje" class="btn-primary" target="_blank" style="font-size: 16px;">📲 Escribir al WhatsApp</a>
-        </div>
+    <section class="contact-section">
+        <h2 class="contact-title">Let's Create.</h2>
+        <p class="contact-desc">Disponible para campañas publicitarias, creación de contenido UGC, estilismo y proyectos editoriales en Panamá.</p>
+        <a href="https://wa.me/50763356804?text=Hola%20Mimi,%20me%20gustaría%20información%20para%20una%20colaboración/proyecto" class="btn-booking" target="_blank">Bookings & Collabs</a>
     </section>
 
     <footer class="footer">
-        <p>Valeria Miranda © 2026 | Ciudad de Panamá, Panamá</p>
+        <p>MIMI VAMVAS © 2026 | PANAMÁ</p>
     </footer>
 
-    <a href="https://wa.me/50760000000" class="whatsapp-float" target="_blank" title="Chat por WhatsApp">
+    <a href="https://wa.me/50763356804" class="whatsapp-float" target="_blank" title="Chat Comercial">
         <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2m0 1.88c2.15 0 4.17.84 5.7 2.36a8.03 8.03 0 0 1 2.33 5.67c0 4.44-3.61 8.05-8.03 8.05-1.46 0-2.89-.4-4.13-1.15l-.3-.18-3.07.81.82-2.99-.19-.31a8.04 8.04 0 0 1-1.18-4.22c0-4.44 3.6-8.04 8.05-8.04m-3.46 4.3c-.13 0-.31.05-.48.23-.17.18-.65.63-.65 1.54 0 .92.67 1.8.76 1.93.09.12 1.3 2.05 3.19 2.87.45.2.8.31 1.07.4.45.14.86.12 1.18.07.36-.05 1.1-.45 1.26-.88.15-.43.15-.81.11-.88-.04-.07-.16-.12-.33-.21-.17-.08-1.1-.54-1.27-.6-.17-.06-.29-.08-.42.08-.12.17-.48.6-.59.72-.11.13-.22.14-.39.06-.17-.08-.71-.26-1.35-.83-.5-.45-.83-.99-.93-1.16-.1-.17-.01-.26.08-.35.08-.08.17-.2.25-.29.08-.1.11-.17.16-.29.05-.12.03-.23-.01-.32-.04-.09-.42-1.01-.58-1.38-.15-.37-.32-.32-.42-.32z"/></svg>
     </a>
 
