@@ -3,116 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vela DaySpa | Wellness & Luxury Experience Panama</title>
+    <title>Vela DaySpa | Luxury Wellness Panama</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --gold: #c5a059;
-            --dark-green: #1a2f23;
-            --soft-cream: #f9f7f2;
-            --text-gray: #555;
-            --white: #ffffff;
+            --oro: #c5a059;
+            --oro-oscuro: #a88a4a;
+            --verde-oscuro: #1a2f23;
+            --crema: #fdfbf7;
+            --blanco: #ffffff;
+            --sombra-premium: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--soft-cream); color: var(--dark-green); overflow-x: hidden; }
-        
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--crema); color: var(--verde-oscuro); line-height: 1.6; overflow-x: hidden; }
         h1, h2, h3, .logo-text { font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 2px; }
 
         /* --- NAVEGACIÓN --- */
         nav {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            background: var(--blanco); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
-        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--dark-green); }
-        .logo-svg { width: 40px; fill: var(--gold); }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--verde-oscuro); }
+        .logo-svg { width: 35px; fill: var(--oro); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { font-size: 0.75rem; font-weight: 700; text-decoration: none; color: var(--verde-oscuro); transition: 0.3s; }
+        .nav-links a:hover { color: var(--oro); }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 90vh;
-            background: linear-gradient(rgba(26, 47, 35, 0.6), rgba(26, 47, 35, 0.6)), 
-                        url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2000');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 20px;
+        /* --- SLIDER DE PORTADA (3 SLIDES) --- */
+        .hero-slider { position: relative; height: 85vh; width: 100%; overflow: hidden; }
+        .slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; transition: opacity 1s ease-in-out;
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center;
         }
-        .hero h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; max-width: 800px; font-weight: 300; margin-bottom: 30px; }
+        .slide.active { opacity: 1; }
+        .slide-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+        .slide-content { position: relative; z-index: 10; color: white; text-align: center; padding: 20px; max-width: 900px; }
+        .slide-content h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .btn-gold { 
+            display: inline-block; padding: 15px 40px; background: var(--oro); color: white; 
+            text-decoration: none; font-weight: 700; border-radius: 5px; transition: 0.3s;
+        }
 
-        .cta-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; text-transform: uppercase; font-size: 0.8rem; }
-        .btn-gold { background: var(--gold); color: var(--white); }
-        .btn-waze { background: #33ccff; color: white; display: flex; align-items: center; gap: 8px; }
-
-        /* --- SECCIÓN SERVICIOS (TARJETAS) --- */
+        /* --- STAFF INTERACTIVO (TARJETAS) --- */
         .container { max-width: 1200px; margin: auto; padding: 80px 20px; }
-        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
-        .service-card { 
-            background: var(--white); border-radius: 15px; overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; 
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        
+        .staff-card { 
+            position: relative; height: 550px; border-radius: 15px; overflow: hidden; 
+            background: #000; box-shadow: var(--sombra-premium); 
         }
-        .service-card:hover { transform: translateY(-10px); border: 1px solid var(--gold); }
-        .service-img { width: 100%; height: 200px; object-fit: cover; }
-        .service-content { padding: 25px; }
-        .price { color: var(--gold); font-weight: bold; font-size: 1.2rem; display: block; margin-top: 10px; }
-
-        /* --- NOTA ESTRATÉGICA (DISCRECIÓN) --- */
-        .disclaimer-box {
-            background: var(--dark-green); color: var(--white);
-            padding: 40px; border-radius: 20px; margin: 40px 0; border-left: 5px solid var(--gold);
-        }
-        .disclaimer-box h3 { color: var(--gold); margin-bottom: 15px; }
-
-        /* --- STAFF (MODERNO) --- */
-        .staff-profile { position: relative; border-radius: 20px; overflow: hidden; background: #000; height: 450px; }
-        .staff-profile img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: 0.5s; }
-        .staff-profile:hover img { opacity: 0.6; transform: scale(1.05); }
+        .staff-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: 0.5s; }
         .staff-overlay { 
-            position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white;
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 25px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95)); color: white;
         }
-        .stats { display: flex; gap: 10px; margin-top: 10px; font-size: 0.75rem; color: var(--gold); font-weight: bold; }
+        .staff-info h3 { font-size: 1.8rem; color: var(--oro); }
+        .staff-tags { font-size: 0.7rem; font-weight: 700; color: #ddd; margin: 5px 0 15px; letter-spacing: 1px; }
 
-        /* --- BLOG --- */
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .blog-post h4 { margin: 15px 0; color: var(--dark-green); }
-        .blog-post p { font-size: 0.9rem; color: var(--text-gray); }
+        /* Desplegable de domicilio */
+        .action-container { position: relative; }
+        .btn-reserve { 
+            width: 100%; padding: 12px; background: var(--oro); border: none; color: white; 
+            font-weight: 700; cursor: pointer; border-radius: 5px; text-transform: uppercase;
+        }
+        .drop-panel {
+            position: absolute; bottom: 110%; left: 0; width: 100%; background: white;
+            border-radius: 10px; padding: 20px; box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+            display: none; flex-direction: column; gap: 10px; color: var(--verde-oscuro); z-index: 50;
+        }
+        .drop-panel.active { display: flex; animation: slideUp 0.3s ease; }
+        .opt { border: 1px solid #eee; padding: 10px; border-radius: 5px; cursor: pointer; transition: 0.2s; }
+        .opt:hover { border-color: var(--oro); background: #fafafa; }
+        .opt span { display: block; font-weight: 700; font-size: 0.9rem; }
+        .opt small { font-size: 0.7rem; color: #888; }
 
-        /* --- FOOTER --- */
-        footer { background: #111; color: #999; padding: 60px 5% 20px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
-        .footer-logo { filter: grayscale(1) brightness(2); margin-bottom: 20px; }
-        .footer-title { color: var(--white); margin-bottom: 20px; font-size: 1rem; }
-        .social-links a { color: var(--white); font-size: 1.5rem; margin-right: 15px; transition: 0.3s; }
-        .social-links a:hover { color: var(--gold); }
+        /* --- SECCIÓN ESTRATÉGICA --- */
+        .discretion-banner { 
+            background: var(--verde-oscuro); color: white; padding: 60px 20px; 
+            text-align: center; border-radius: 20px; margin: 40px 0;
+        }
+        .discretion-banner h2 { color: var(--oro); margin-bottom: 20px; }
 
-        /* WhatsApp Flotante */
+        /* --- WHATSAPP FLOTANTE --- */
         .wa-float {
-            position: fixed; bottom: 30px; right: 30px; background: #25d366;
+            position: fixed; bottom: 25px; right: 25px; background: #25d366;
             width: 65px; height: 65px; border-radius: 50%; display: flex;
             align-items: center; justify-content: center; color: white;
-            font-size: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 9999;
+            font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 2000;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .grid-services { grid-template-columns: 1fr; }
-        }
+        /* --- FOOTER --- */
+        footer { background: #111; color: white; padding: 80px 5% 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-logo { font-size: 1.5rem; color: var(--oro); margin-bottom: 20px; }
+        .social-icons a { font-size: 1.5rem; color: white; margin-right: 15px; }
+
+        @keyframes slideUp { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 </head>
 <body>
@@ -121,152 +114,156 @@
 
     <nav>
         <a href="#" class="logo-container">
-            <svg class="logo-svg" viewBox="0 0 512 512"><path d="M256 160c16-63.1 48-124.7 48-160 0 34 22.7 49.8 45.4 65.5C377.3 84.7 400 100.5 400 128c0 40.7-30.1 74.1-69.1 79.4l4.5 13.5c4.7 14.2-2.9 29.6-17.1 34.3s-29.6-2.9-34.3-17.1l-28-84c-2.3-6.9-10.4-10.7-17.4-8.4s-10.7 10.4-8.4 17.4l28 84c4.7 14.2-2.9 29.6-17.1 34.3s-29.6-2.9-34.3-17.1l-4.5-13.5C163.6 244 112 192 112 128c0-27.5 22.7-43.3 50.6-62.5C185.3 49.8 208 34 208 0c0 35.3 32 96.9 48 160z"/>
-            </svg>
+            <svg class="logo-svg" viewBox="0 0 512 512"><path d="M256 160c16-63.1 48-124.7 48-160 0 34 22.7 49.8 45.4 65.5C377.3 84.7 400 100.5 400 128c0 40.7-30.1 74.1-69.1 79.4l4.5 13.5c4.7 14.2-2.9 29.6-17.1 34.3s-29.6-2.9-34.3-17.1l-28-84c-2.3-6.9-10.4-10.7-17.4-8.4s-10.7 10.4-8.4 17.4l28 84c4.7 14.2-2.9 29.6-17.1 34.3s-29.6-2.9-34.3-17.1l-4.5-13.5C163.6 244 112 192 112 128c0-27.5 22.7-43.3 50.6-62.5C185.3 49.8 208 34 208 0c0 35.3 32 96.9 48 160z"/></svg>
             <span class="logo-text">Vela DaySpa</span>
         </a>
-        <div class="social-links" style="display: flex; align-items: center;">
-            <a href="https://instagram.com" style="color: #E1306C;"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/50760162716" style="color: #25d366;"><i class="fab fa-whatsapp"></i></a>
+        <div class="nav-links">
+            <a href="index.html">INICIO</a>
+            <a href="sobre-vela.html">SOBRE VELA</a>
+            <a href="servicios.html">SERVICIOS</a>
+            <a href="#staff">TERAPEUTAS</a>
+            <a href="reservas.html">RESERVAS</a>
+        </div>
+        <div style="display: flex; gap:15px;">
+            <a href="https://instagram.com" style="color:#E1306C; font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
+            <a href="https://ul.waze.com/ul?ll=9.006437,-79.493979&navigate=yes" style="color:#33ccff; font-size:1.2rem;"><i class="fab fa-waze"></i></a>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>Renace en el Paraíso</h1>
-        <p>Expertos en masajes terapéuticos y relajación sensitiva para damas y caballeros de alto perfil. Atención bilingüe en el corazón de Panamá.</p>
-        <div class="cta-group">
-            <a href="#servicios" class="btn btn-gold">Ver Servicios VIP</a>
-            <a href="https://ul.waze.com/ul?ll=9.006437,-79.493979&navigate=yes" class="btn btn-waze">
-                <i class="fab fa-waze"></i> Ir a Plaza Royal Park
-            </a>
+    <section class="hero-slider">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1544161515-4af6b1d462c2?q=80&w=2000');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1>Tu Santuario de Relajación</h1>
+                <p>Staff profesional de damas y caballeros expertos en terapias sensitivas y descontracturantes.</p>
+                <a href="#staff" class="btn-gold">ELEGIR TERAPEUTA</a>
+            </div>
         </div>
-    </header>
-
-    <section class="container" id="servicios">
-        <h2 style="text-align: center;">Nuestras Terapias Signature</h2>
-        <div class="grid-services">
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=600" class="service-img">
-                <div class="service-content">
-                    <h3>Relajante Sensitivo</h3>
-                    <p>Movimientos suaves y envolventes diseñados para desconectar el sistema nervioso y elevar los sentidos.</p>
-                    <span class="price">Desde $60.00</span>
-                    <a href="https://wa.me/50760162716" class="btn-gold btn" style="display:block; margin-top:15px; text-align:center;">Reservar</a>
-                </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2000');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1>Experiencia 100% Panameña</h1>
+                <p>Alto estándar de atención para el mercado premium y sector turismo (English Spoken).</p>
+                <a href="servicios.html" class="btn-gold">VER SERVICIOS</a>
             </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=600" class="service-img">
-                <div class="service-content">
-                    <h3>Tejido Profundo</h3>
-                    <p>Especial para descontracturar y liberar tensiones acumuladas por el estrés o actividad deportiva intensa.</p>
-                    <span class="price">Desde $75.00</span>
-                    <a href="https://wa.me/50760162716" class="btn-gold btn" style="display:block; margin-top:15px; text-align:center;">Reservar</a>
-                </div>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1544161515-4af6b1d462c2?q=80&w=600" class="service-img">
-                <div class="service-content">
-                    <h3>Reductor VIP</h3>
-                    <p>Tratamiento estético avanzado para moldear la figura con técnicas manuales de alto impacto.</p>
-                    <span class="price">Desde $85.00</span>
-                    <a href="https://wa.me/50760162716" class="btn-gold btn" style="display:block; margin-top:15px; text-align:center;">Reservar</a>
-                </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2000');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <h1>Spa en tu Residencia u Hotel</h1>
+                <p>Llevamos el confort a tu puerta con nuestro servicio a domicilio exclusivo.</p>
+                <a href="https://wa.me/50760162716" class="btn-gold">PEDIR A DOMICILIO</a>
             </div>
         </div>
     </section>
 
-    <section class="container" style="padding-top: 0;">
-        <div class="disclaimer-box">
-            <h3>Atención Personalizada y Exclusiva</h3>
-            <p>En **Vela DaySpa**, nos enorgullecemos de contar con un staff de terapeutas (damas y caballeros) de presencia impecable, seleccionados no solo por su gran atractivo, sino por su amabilidad y destreza técnica. Nuestro objetivo es que te sientas consentido(a) y relajado(a) en un ambiente de total confianza.</p>
-            <br>
-            <p><i>Nota Importante: Somos un centro de bienestar integral. Fomentamos un ambiente de respeto y amistad; no realizamos servicios de carácter sexual. Nuestra meta es que te conviertas en un cliente frecuente gracias a nuestro trato de excelencia.</i></p>
-        </div>
-    </section>
-
-    <section class="container">
-        <h2 style="text-align: center; margin-bottom: 40px;">Conoce a tu Terapeuta</h2>
-        <div class="grid-services">
-            <div class="staff-profile">
-                <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=80&w=600">
-                <div class="staff-overlay">
-                    <h3>Valentina</h3>
-                    <div class="stats">ESBELTA | MANOS SUAVES | BILINGÜE</div>
-                    <p>Experta en masajes sensitivos y relajación profunda. Atención dulce y profesional.</p>
-                    <a href="https://wa.me/50760162716" class="btn-gold btn" style="margin-top:10px;">Cita con ella</a>
-                </div>
-            </div>
-            <div class="staff-profile">
-                <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=600">
-                <div class="staff-overlay">
-                    <h3>Ricardo</h3>
-                    <div class="stats">PULSO FIRME | DESCONTRACTURANTE | CABALLERO</div>
-                    <p>Fuerte y técnico. Ideal para quienes buscan liberar cargas musculares pesadas.</p>
-                    <a href="https://wa.me/50760162716" class="btn-gold btn" style="margin-top:10px;">Cita con él</a>
-                </div>
-            </div>
-            <div class="staff-profile">
-                <img src="https://images.unsplash.com/photo-1620331311520-246422ff82f9?q=80&w=600">
+    <div class="container">
+        <h2 class="section-title">Elige tu Masajista</h2>
+        <div class="staff-grid" id="staff">
+            
+            <div class="staff-card">
+                <img src="https://images.unsplash.com/photo-1610492147101-772b12369651?q=80&w=800">
                 <div class="staff-overlay">
                     <h3>Isabella</h3>
-                    <div class="stats">EXTROVERTIDA | PIEL RADIANTE | FACIALES</div>
-                    <p>Especialista en drenaje linfático y tratamientos corporales VIP.</p>
-                    <a href="https://wa.me/50760162716" class="btn-gold btn" style="margin-top:10px;">Cita con ella</a>
+                    <div class="staff-tags">ESBELTA | BILINGÜE | SENSITIVO VIP</div>
+                    <p style="font-size: 0.8rem; margin-bottom: 20px;">Especialista en manos suaves y trato dulce para caballeros de alto perfil.</p>
+                    <div class="action-container">
+                        <button class="btn-reserve" onclick="toggleDrop('drop1')">Seleccionar Isabella</button>
+                        <div class="drop-panel" id="drop1">
+                            <div class="opt"><span>En Sucursal</span><small>Plaza Royal Park</small></div>
+                            <div class="opt" onclick="location.href='https://wa.me/50760162716?text=Cita%20domicilio%20con%20Isabella'">
+                                <span>A Domicilio (+$30)</span><small>Incluye Uber Confort para seguridad</small>
+                            </div>
+                            <a href="reservas.html" style="font-size:0.7rem; color:var(--oro); text-align:center;">IR A CALENDARIO DE CITAS</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="container" style="background: #fff; border-radius: 30px;">
-        <h2 style="text-align: center; margin-bottom: 40px;">Wellness Blog</h2>
-        <div class="blog-grid">
-            <div class="blog-post">
-                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=400" style="width:100%; border-radius:10px;">
-                <h4>Beneficios del Masaje Relajante para Damas</h4>
-                <p>Más que un lujo, es una necesidad. Mejora la elasticidad de la piel, combate el insomnio y reduce la ansiedad acumulada por la rutina diaria.</p>
+            <div class="staff-card">
+                <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=800">
+                <div class="staff-overlay">
+                    <h3>Ricardo</h3>
+                    <div class="staff-tags">MANOS FUERTES | GUAPO | TERAPÉUTICO</div>
+                    <p style="font-size: 0.8rem; margin-bottom: 20px;">Fuerte pulso y gran experiencia en masajes descontracturantes para damas.</p>
+                    <div class="action-container">
+                        <button class="btn-reserve" onclick="toggleDrop('drop2')">Seleccionar Ricardo</button>
+                        <div class="drop-panel" id="drop2">
+                            <div class="opt"><span>En Sucursal</span><small>Plaza Royal Park</small></div>
+                            <div class="opt"><span>A Domicilio (+$30)</span><small>Incluye Uber Confort</small></div>
+                            <a href="reservas.html" style="font-size:0.7rem; color:var(--oro); text-align:center;">IR A CALENDARIO DE CITAS</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="blog-post">
-                <img src="https://images.unsplash.com/photo-1544161515-4af6b1d462c2?q=80&w=400" style="width:100%; border-radius:10px;">
-                <h4>Caballeros: El escape perfecto</h4>
-                <p>Nuestros masajes para hombres se enfocan en la espalda y hombros, eliminando nudos de tensión mientras disfrutas de un lugar discreto y bilingüe.</p>
+
+            <div class="staff-card">
+                <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?q=80&w=800">
+                <div class="staff-overlay">
+                    <h3>Valentina</h3>
+                    <div class="staff-tags">ESBELTA | DELICADA | RELAJANTE</div>
+                    <p style="font-size: 0.8rem; margin-bottom: 20px;">Atención de alto nivel enfocada en aliviar tensiones y consentirte al máximo.</p>
+                    <div class="action-container">
+                        <button class="btn-reserve" onclick="toggleDrop('drop3')">Seleccionar Valentina</button>
+                        <div class="drop-panel" id="drop3">
+                            <div class="opt"><span>En Sucursal</span><small>Plaza Royal Park</small></div>
+                            <div class="opt"><span>A Domicilio (+$30)</span><small>Incluye Uber Confort</small></div>
+                            <a href="reservas.html" style="font-size:0.7rem; color:var(--oro); text-align:center;">IR A CALENDARIO DE CITAS</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="blog-post">
-                <img src="https://images.unsplash.com/photo-1591343395582-99bf4eb11abc?q=80&w=400" style="width:100%; border-radius:10px;">
-                <h4>¿Qué es el masaje sensitivo?</h4>
-                <p>Una terapia que utiliza aceites esenciales y roces suaves para despertar la consciencia corporal y llevarte a un estado de paz absoluta.</p>
-            </div>
+
         </div>
-    </section>
+
+        <div class="discretion-banner">
+            <h2>Compromiso y Discreción</h2>
+            <p>Nuestras terapeutas son amables y nuestro staff masculino seleccionado por su presencia impecable. Atendemos a clientes de alto perfil con un trato que fomenta la amistad y el retorno frecuente.</p>
+            <p style="margin-top:15px; font-weight:700; color:var(--oro);">*No realizamos actos sexuales. Fomentamos un ambiente de absoluto respeto.</p>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-grid">
             <div>
-                <div class="logo-container footer-logo">
-                    <svg class="logo-svg" viewBox="0 0 512 512"><path d="M256 160c16-63.1 48-124.7 48-160 0 34 22.7 49.8 45.4 65.5C377.3 84.7 400 100.5 400 128c0 40.7-30.1 74.1-69.1 79.4l4.5 13.5c4.7 14.2-2.9 29.6-17.1 34.3s-29.6-2.9-34.3-17.1l-28-84c-2.3-6.9-10.4-10.7-17.4-8.4s-10.7 10.4-8.4 17.4l28 84c4.7 14.2-2.9 29.6-17.1 34.3s-29.6-2.9-34.3-17.1l-4.5-13.5C163.6 244 112 192 112 128c0-27.5 22.7-43.3 50.6-62.5C185.3 49.8 208 34 208 0c0 35.3 32 96.9 48 160z"/></svg>
-                    <span class="logo-text" style="color: white;">Vela DaySpa</span>
-                </div>
-                <p>Empresa 100% Panameña comprometida con el bienestar y el lujo.</p>
+                <div class="footer-logo">VELA DAYSPA</div>
+                <p>Parque Lefevre, Plaza Royal Park<br>Local PB-19, Ciudad de Panamá</p>
             </div>
             <div>
-                <h4 class="footer-title">Contacto</h4>
-                <p>Parque Lefevre, Plaza Royal Park</p>
-                <p>Local PB-19, Ciudad de Panamá</p>
+                <h4>CONTACTO</h4>
                 <p>Tel: 222-22222</p>
-                <p>Cel/WS: 6016-2716</p>
+                <p>WhatsApp: 6016-2716</p>
             </div>
             <div>
-                <h4 class="footer-title">Síguenos</h4>
-                <div class="social-links">
+                <h4>SÍGUENOS</h4>
+                <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
-        <div style="border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.8rem;">
-            &copy; 2026 Vela DaySpa Panamá. Luxury Wellness Center.
+        <div style="text-align:center; margin-top:50px; font-size:0.7rem; border-top:1px solid #333; padding-top:20px;">
+            &copy; 2026 Vela DaySpa Panamá. Todos los derechos reservados.
         </div>
     </footer>
 
+    <script>
+        // Lógica del Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+
+        // Lógica del Desplegable Domicilio
+        function toggleDrop(id) {
+            document.querySelectorAll('.drop-panel').forEach(p => {
+                if(p.id !== id) p.classList.remove('active');
+            });
+            document.getElementById(id).classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
