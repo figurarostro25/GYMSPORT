@@ -1,460 +1,1012 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vela DaySpa | Luxury Wellness & VIP Therapeutic Experience Panama</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Veladay Spa | Men's Spa & Sensory Experiences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- SISTEMA DE COLORES DE LUJO (SIN MARRÓN) --- */
+        /* --- DESIGN SYSTEM & DARK THEME VARIABLES --- */
         :root {
-            --oro: #c5a059;
-            --oro-oscuro: #a88a4a;
-            --verde-oscuro: #1a2f23;
-            --crema: #faf9f6;
-            --blanco: #ffffff;
-            --negro: #0a0a0a;
-            --gris-suave: #f2f2f2;
-            --sombra-premium: 0 25px 50px rgba(0,0,0,0.15);
-            --transicion: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --bg-main: #0b0c10;
+            --bg-secondary: #12141c;
+            --bg-card: #1a1d24;
+            --accent-gold: #c5a880;
+            --accent-gold-hover: #e0c5a2;
+            --text-light: #f5f5f5;
+            --text-muted: #a0a5b5;
+            --border-color: #242936;
+            --font-title: 'Cinzel', serif;
+            --font-body: 'Montserrat', sans-serif;
         }
 
-        /* --- RESET Y GLOBALES --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: var(--crema); 
-            color: var(--negro); 
-            line-height: 1.8; 
-            overflow-x: hidden; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1, h2, h3, h4, .logo-text { font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 3px; }
-        a { text-decoration: none; color: inherit; transition: var(--transicion); }
-        ul { list-style: none; }
 
-        /* --- NAVEGACIÓN PREMIUM --- */
-        nav {
-            background: var(--blanco); 
-            padding: 20px 5%; 
-            display: flex; 
-            justify-content: space-between; 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #000;
+            padding: 14px 28px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            border: 1px solid var(--accent-gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--accent-gold);
+            box-shadow: 0 0 15px rgba(197, 168, 128, 0.4);
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            color: var(--text-light);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: rgba(11, 12, 16, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            position: sticky; 
-            top: 0; 
-            z-index: 5000; 
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            padding: 15px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        .logo-container { display: flex; align-items: center; gap: 12px; }
-        .logo-svg { width: 40px; fill: var(--oro); }
-        .logo-text { font-size: 1.4rem; font-weight: 700; color: var(--negro); }
-        
-        .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { font-size: 0.8rem; font-weight: 700; color: var(--negro); position: relative; }
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; 
-            height: 2px; background: var(--oro); transition: var(--transicion);
-        }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: var(--oro); }
 
-        .ws-header { color: #25d366; font-size: 1.5rem; transition: 0.3s; }
-        .ws-header:hover { transform: scale(1.1); }
+        .logo-placeholder {
+            font-family: var(--font-title);
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            border: 1px dashed rgba(197, 168, 128, 0.3); /* Borrar esto cuando pongas tu imagen */
+            padding: 5px 10px;
+        }
 
-        /* --- HERO SLIDER (TEXTOS OPTIMIZADOS) --- */
-        .hero-slider { position: relative; height: 85vh; width: 100%; overflow: hidden; background: #000; }
-        .slide {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0; transition: opacity 1.5s ease-in-out;
-            background-size: cover; background-position: center;
-            display: flex; align-items: center; justify-content: center;
+        .logo-placeholder img {
+            height: 45px;
+            margin-right: 10px;
         }
-        .slide.active { opacity: 1; transform: scale(1.02); transition: opacity 1.5s ease, transform 10s linear; }
-        .slide-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-        
-        .slide-content { 
-            position: relative; z-index: 10; color: white; text-align: center; 
-            padding: 20px; max-width: 800px; 
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
         }
-        .slide-content h1 { 
-            font-size: clamp(1.8rem, 4vw, 2.8rem); 
-            margin-bottom: 15px; 
-            text-shadow: 2px 4px 15px rgba(0,0,0,0.5);
-            letter-spacing: 5px;
+
+        .nav-menu a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 500;
         }
-        .slide-content p { 
-            font-size: 1.1rem; 
-            font-weight: 300; 
-            letter-spacing: 2px; 
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--accent-gold);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .lang-switch {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .lang-switch span.active {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* --- HERO SECTION --- */
+        #home {
+            background: linear-gradient(rgba(11, 12, 16, 0.85), rgba(11, 12, 16, 0.9)), url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=1920') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-tagline {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-family: var(--font-title);
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
             margin-bottom: 40px;
-            color: rgba(255,255,255,0.9);
+            font-weight: 300;
         }
 
-        /* --- SECCIONES GLOBALES --- */
-        .container { max-width: 1250px; margin: auto; padding: 100px 20px; }
-        .section-title { text-align: center; margin-bottom: 70px; }
-        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        .section-title .divider { width: 70px; height: 3px; background: var(--oro); margin: auto; }
+        /* --- EXPERIENCES (SERVICES) SECTION --- */
+        #experiences {
+            background-color: var(--bg-secondary);
+        }
 
-        /* --- STAFF INTERACTIVO --- */
-        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
-        .staff-card { 
-            position: relative; height: 600px; border-radius: 15px; overflow: hidden; 
-            background: #000; box-shadow: var(--sombra-premium); transition: var(--transicion);
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
-        .staff-card:hover { transform: translateY(-10px); }
-        .staff-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: 0.8s; }
-        .staff-card:hover img { transform: scale(1.05); opacity: 0.7; }
 
-        .staff-overlay { 
-            position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px 30px;
-            background: linear-gradient(transparent, rgba(0,0,0,1) 85%); color: white;
-            display: flex; flex-direction: column; justify-content: flex-end;
+        .service-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
         }
-        .staff-info h3 { font-size: 2rem; color: var(--oro); margin-bottom: 5px; }
-        .staff-tags { 
-            font-size: 0.7rem; font-weight: 700; color: var(--oro); margin-bottom: 15px; 
-            letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-        }
-        .staff-desc { font-size: 0.9rem; font-weight: 300; margin-bottom: 25px; color: #efefef; }
 
-        /* PANEL DESPLEGABLE (INTERACTIVO) */
-        .btn-reserve { 
-            width: 100%; padding: 16px; background: var(--oro); border: none; color: white; 
-            font-weight: 700; cursor: pointer; border-radius: 8px; text-transform: uppercase; 
-            letter-spacing: 1px; font-size: 0.85rem; transition: var(--transicion);
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
         }
-        .btn-reserve:hover { background: var(--oro-oscuro); }
 
-        .drop-panel {
-            position: absolute; bottom: 105%; left: 15px; right: 15px; background: white;
-            border-radius: 12px; padding: 20px; box-shadow: 0 -15px 40px rgba(0,0,0,0.4);
-            display: none; flex-direction: column; gap: 10px; color: var(--negro); z-index: 100;
+        .service-img-wrapper {
+            height: 220px;
+            background-color: #222;
+            position: relative;
         }
-        .drop-panel.active { display: flex; animation: slideUp 0.3s ease forwards; }
+
+        /* Reemplaza este background-image por tus enlaces de fotos */
+        .service-card:nth-child(1) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=600') center/cover; }
+        .service-card:nth-child(2) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1519823551276-6497b50630f6?q=80&w=600') center/cover; }
+        .service-card:nth-child(3) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=600') center/cover; }
+        .service-card:nth-child(4) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=80&w=600') center/cover; }
+        .service-card:nth-child(5) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=600') center/cover; }
+        .service-card:nth-child(6) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=600') center/cover; }
+        .service-card:nth-child(7) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=600') center/cover; }
+        .service-card:nth-child(8) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1611077544195-0b7041c97a8e?q=80&w=600') center/cover; }
+
+        .service-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-gold);
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            letter-spacing: 1px;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+
+        .service-name {
+            font-family: var(--font-title);
+            font-size: 1.3rem;
+            color: var(--text-light);
+        }
+
+        .service-duration {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        .service-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            min-height: 80px;
+        }
+
+        .service-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            font-size: 0.85rem;
+        }
+
+        .service-include {
+            color: var(--text-light);
+        }
+
+        .service-include i {
+            color: var(--accent-gold);
+            margin-right: 6px;
+        }
+
+        .service-link {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .service-link:hover {
+            color: var(--text-light);
+        }
+
+        .center-action {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .whatsapp-notice {
+            margin-top: 15px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
         
-        .opt { border: 1px solid #eee; padding: 15px; border-radius: 8px; cursor: pointer; transition: 0.2s; }
-        .opt:hover { border-color: var(--oro); background: #fdfbf7; }
-        .opt b { display: block; font-size: 1rem; color: var(--negro); margin-bottom: 2px; }
-        .opt small { font-size: 0.75rem; color: #888; display: block; }
-
-        /* --- SERVICIOS HOME --- */
-        .service-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: var(--sombra-premium); text-align: center; }
-        .service-card img { width: 100%; height: 250px; object-fit: cover; }
-        .service-body { padding: 35px; }
-        .service-body h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--negro); }
-        .service-body p { font-size: 0.9rem; color: #666; margin-bottom: 20px; }
-        .btn-ver { display: inline-block; padding: 10px 25px; border: 1px solid var(--oro); color: var(--oro); font-weight: 600; font-size: 0.8rem; border-radius: 5px; }
-
-        /* Botón Central que pediste */
-        .services-footer { text-align: center; margin-top: 60px; }
-        .btn-gold-large {
-            display: inline-block; padding: 18px 60px; background: var(--oro); color: white;
-            font-weight: 700; text-transform: uppercase; border-radius: 50px; letter-spacing: 2px;
-            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.4);
-        }
-        .btn-gold-large:hover { background: var(--oro-oscuro); transform: scale(1.05); }
-
-        /* --- ESTRATEGIA FINAL (3 TARJETAS) --- */
-        .cta-final { 
-            background: linear-gradient(135deg, #1a2f23 0%, #0a0a0a 100%); 
-            color: white; padding: 100px 30px; text-align: center; border-radius: 40px; 
-            margin: 60px 20px; border: 1px solid var(--oro);
-        }
-        .promo-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; margin: 50px auto; max-width: 1100px; 
-        }
-        .promo-item { 
-            background: rgba(255,255,255,0.03); padding: 40px 20px; border-radius: 20px; 
-            border: 1px solid rgba(197, 160, 89, 0.2); transition: 0.4s; 
-        }
-        .promo-item i { font-size: 2.5rem; color: var(--oro); margin-bottom: 20px; display: block; }
-        .promo-item h4 { font-size: 1.2rem; margin-bottom: 10px; color: var(--oro); }
-
-        .secret-btn { 
-            background: var(--oro); color: white; padding: 25px 60px; font-size: 1.3rem; 
-            font-weight: 800; border-radius: 60px; display: inline-block; cursor: pointer;
-            animation: pulse-gold 2s infinite; box-shadow: 0 0 30px rgba(197, 160, 89, 0.4); 
-            margin-top: 30px; border: none;
+        .whatsapp-notice a {
+            color: #25d366;
+            font-weight: 600;
         }
 
-        /* --- FOOTER BOUTIQUE (SIN INSTAGRAM) --- */
-        footer { background: var(--negro); color: #888; padding: 100px 5% 50px; text-align: center; border-top: 1px solid #222; }
-        .footer-logo { font-size: 2rem; color: var(--oro); margin-bottom: 30px; }
-        .footer-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; margin-bottom: 60px; text-align: left; }
-        .footer-title { color: white; margin-bottom: 25px; font-size: 1rem; letter-spacing: 2px; }
-        .footer-text { font-size: 0.95rem; margin-bottom: 10px; }
-
-        /* WHATSAPP FLOTANTE */
-        .wa-float { 
-            position: fixed; bottom: 40px; right: 40px; background: #25d366; color: white; 
-            width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; 
-            justify-content: center; font-size: 35px; z-index: 5000; box-shadow: 0 15px 40px rgba(0,0,0,0.3); 
-            transition: 0.3s;
+        /* --- THERAPISTS SECTION --- */
+        #therapists {
+            background-color: var(--bg-main);
         }
-        .wa-float:hover { transform: scale(1.1) rotate(10deg); }
 
-        /* ANIMACIONES */
-        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes pulse-gold { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); } 70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(197, 160, 89, 0); } 100% { transform: scale(1); } }
+        .therapists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
 
+        .therapist-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .therapist-card:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .therapist-img {
+            height: 300px;
+            background-color: #222;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
+            position: relative;
+        }
+
+        /* Marcadores para fotos de terapeutas */
+        .therapist-card:nth-child(1) .therapist-img { background: url('https://images.unsplash.com/photo-1594744803329-e58b31de215f?q=80&w=400') center/cover; }
+        .therapist-card:nth-child(2) .therapist-img { background: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400') center/cover; }
+        .therapist-card:nth-child(3) .therapist-img { background: url('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=400') center/cover; }
+        .therapist-card:nth-child(4) .therapist-img { background: url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400') center/cover; }
+
+        .therapist-info {
+            padding: 20px;
+        }
+
+        .therapist-name {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .therapist-role {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-sm-gold {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            display: inline-block;
+        }
+
+        .btn-sm-gold:hover {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
+        /* --- WHY CHOOSE US --- */
+        #why-us {
+            background: linear-gradient(rgba(18, 20, 28, 0.9), rgba(18, 20, 28, 0.9)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200') center/cover fixed;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .why-item i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .why-item h3 {
+            font-family: var(--font-title);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .why-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- JOURNAL (BLOG) --- */
+        #journal {
+            background-color: var(--bg-main);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+        }
+
+        .blog-img {
+            height: 200px;
+            background-color: #222;
+        }
+        .blog-card:nth-child(1) .blog-img { background: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=600') center/cover; }
+        .blog-card:nth-child(2) .blog-img { background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600') center/cover; }
+        .blog-card:nth-child(3) .blog-img { background: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=600') center/cover; }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-tag {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .blog-title {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        /* --- LOCATION & CONTACT --- */
+        #contact {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3, .contact-map h3 {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+        }
+
+        .info-link-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .info-link-item i {
+            color: var(--accent-gold);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 4px;
+        }
+
+        .info-link-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .info-link-item strong {
+            color: var(--text-light);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .map-box {
+            width: 100%;
+            height: 250px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* --- FOOTER & DISCLAIMER --- */
+        footer {
+            background-color: #07080a;
+            padding: 60px 0 20px 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-title);
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-col p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .disclaimer-box {
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            margin-top: 30px;
+            font-size: 0.75rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #111;
+            font-size: 0.8rem;
+        }
+
+        /* --- FLOATING WHATSAPP BUTTON --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .container { padding: 60px 20px; }
-            .section-title h2 { font-size: 2rem; }
-            .staff-card { height: 550px; }
-            .slide-content h1 { font-size: 1.8rem; }
+            .nav-menu {
+                display: none; /* Simplificado para plantilla básica */
+            }
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/50760162716" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/50763645633" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    <nav>
-        <div class="logo-container">
-            <svg class="logo-svg" viewBox="0 0 512 512"><path d="M256 160c16-63.1 48-124.7 48-160 0 34 22.7 49.8 45.4 65.5C377.3 84.7 400 100.5 400 128c0 40.7-30.1 74.1-69.1 79.4l4.5 13.5c4.7 14.2-2.9 29.6-17.1 34.3s-29.6-2.9-34.3-17.1l-28-84c-2.3-6.9-10.4-10.7-17.4-8.4s-10.7 10.4-8.4 17.4l28 84c4.7 14.2-2.9 29.6-17.1 34.3s-29.6-2.9-34.3-17.1l-4.5-13.5C163.6 244 112 192 112 128c0-27.5 22.7-43.3 50.6-62.5C185.3 49.8 208 34 208 0c0 35.3 32 96.9 48 160z"/></svg>
-            <span class="logo-text">Vela DaySpa</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="sobre-vela.html">Sobre Vela</a></li>
-            <li><a href="servicios.html">Servicios VIP</a></li>
-            <li><a href="#staff">Terapeutas</a></li>
-            <li><a href="reservas.html">Reservas</a></li>
-        </ul>
-        <div class="social-nav">
-            <a href="https://wa.me/50760162716" class="ws-header"><i class="fab fa-whatsapp"></i></a>
-        </div>
-    </nav>
-
-    <header class="hero-slider">
-        <div class="slide active" style="background-image: url('hero1.jpg');">
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <h1>CONFORT TOTAL A DOMICILIO</h1>
-                <p>La experiencia boutique de Vela DaySpa en tu hotel o residencia vía Uber Confort.</p>
+    <header>
+        <div class="nav-container">
+            <div class="logo-placeholder">
+                VELADAY SPA
             </div>
-        </div>
-        <div class="slide" style="background-image: url('hero2.jpg');">
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <h1>STAFF PROFESIONAL EXCLUSIVO</h1>
-                <p>Terapeutas bilingües seleccionados bajo los más altos estándares de presencia y técnica.</p>
-            </div>
-        </div>
-        <div class="slide" style="background-image: url('hero3.jpg');">
-            <div class="slide-overlay"></div>
-            <div class="slide-content">
-                <h1>BIENESTAR DE ALTO NIVEL</h1>
-                <p>Masajes terapéuticos y relajación sensorial en el corazón de Panamá.</p>
+            <nav class="nav-menu">
+                <a href="#home" class="active">Home</a>
+                <a href="#experiences">Experiences</a>
+                <a href="#why-us">About Us</a>
+                <a href="#therapists">Therapists</a>
+                <a href="#journal">Journal</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <span class="active">EN</span> | <span>ES</span>
+                </div>
+                <a href="https://wa.me/50763645633" target="_blank" class="btn-gold" style="padding: 8px 16px; font-size: 0.75rem;">Book Appointment</a>
             </div>
         </div>
     </header>
 
-    <section style="background: var(--negro); color: var(--oro); text-align: center; padding: 50px 20px; border-bottom: 1px solid var(--oro);">
-        <h3 style="letter-spacing: 8px;">PRÓXIMA APERTURA</h3>
-        <p style="color: white; font-weight: 200; letter-spacing: 4px; margin-top: 5px;">CHIRIQUÍ · PANAMÁ 2026</p>
-    </section>
-
-    <section class="container" id="staff">
-        <div class="section-title">
-            <h2>Nuestras Terapeutas</h2>
-            <div class="divider"></div>
-        </div>
-
-        <div class="staff-grid">
-            <div class="staff-card">
-                <img src="staff_valentina.jpg" alt="Valentina">
-                <div class="staff-overlay">
-                    <h3>Valentina</h3>
-                    <div class="staff-tags">ESBELTA | MANOS SUAVES | BILINGÜE</div>
-                    <p class="staff-desc">Experta en masajes sensitivos y relajación profunda. Atención dulce y delicada para una desconexión total.</p>
-                    <div style="position:relative;">
-                        <button class="btn-reserve" onclick="toggleDrop('drop-val')">Cita con ella</button>
-                        <div class="drop-panel" id="drop-val">
-                            <div class="opt" onclick="sendWs('Valentina', 'En Spa')"><b>En Spa</b><small>Sucursal Plaza Royal Park</small></div>
-                            <div class="opt" onclick="sendWs('Valentina', 'A Domicilio')"><b>A Domicilio (+$30)</b><small>Uber Confort incluido</small></div>
-                            <a href="CALENDARIO.html" style="text-align:center; display:block; padding-top:15px; font-size:0.75rem; color:var(--oro); font-weight:700; border-top: 1px solid #eee;">IR A CALENDARIO DE CITAS</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="staff-card">
-                <img src="staff_ricardo.jpg" alt="Ricardo">
-                <div class="staff-overlay">
-                    <h3>Ricardo</h3>
-                    <div class="staff-tags">MANOS FUERTES | GUAPO | DESCONTRACTURANTE</div>
-                    <p class="staff-desc">Fuerte y técnico. Ideal para liberar cargas musculares severas. Pulso firme y técnica profesional.</p>
-                    <div style="position:relative;">
-                        <button class="btn-reserve" onclick="toggleDrop('drop-ric')">Cita con él</button>
-                        <div class="drop-panel" id="drop-ric">
-                            <div class="opt" onclick="sendWs('Ricardo', 'En Spa')"><b>En Spa</b><small>Atención personalizada</small></div>
-                            <div class="opt" onclick="sendWs('Ricardo', 'A Domicilio')"><b>A Domicilio (+$30)</b><small>Uber Confort incluido</small></div>
-                            <a href="CALENDARIO.html" style="text-align:center; display:block; padding-top:15px; font-size:0.75rem; color:var(--oro); font-weight:700; border-top: 1px solid #eee;">IR A CALENDARIO DE CITAS</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="staff-card">
-                <img src="staff_isabella.jpg" alt="Isabella">
-                <div class="staff-overlay">
-                    <h3>Isabella</h3>
-                    <div class="staff-tags">EXTROVERTIDA | PIEL RADIANTE | FACIALES</div>
-                    <p class="staff-desc">Especialista en drenaje linfático y tratamientos corporales VIP. Energía vibrante para renovar tu vitalidad.</p>
-                    <div style="position:relative;">
-                        <button class="btn-reserve" onclick="toggleDrop('drop-isa')">Cita con ella</button>
-                        <div class="drop-panel" id="drop-isa">
-                            <div class="opt" onclick="sendWs('Isabella', 'En Spa')"><b>En Spa</b><small>Sucursal Plaza Royal Park</small></div>
-                            <div class="opt" onclick="sendWs('Isabella', 'A Domicilio')"><b>A Domicilio (+$30)</b><small>Uber Confort incluido</small></div>
-                            <a href="CALENDARIO.html" style="text-align:center; display:block; padding-top:15px; font-size:0.75rem; color:var(--oro); font-weight:700; border-top: 1px solid #eee;">IR A CALENDARIO DE CITAS</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="home">
+        <div class="hero-content">
+            <p class="hero-tagline">Men's Spa &middot; Private Sensory Experiences</p>
+            <h1 class="hero-title">Veladay Spa Panama</h1>
+            <p class="hero-description">A private, exclusive sanctuary designed for men seeking a completely distinct, intense, and elegant experience in Panama City. Disconnect, surrender control, and step into an atmosphere unlike any ordinary spa.</p>
+            <a href="https://wa.me/50763645633" target="_blank" class="btn-gold">Book Private Experience</a>
         </div>
     </section>
 
-    <section class="container" style="background: white; border-radius: 40px; box-shadow: var(--sombra-premium);">
-        <div class="section-title">
-            <h2>Nuestros Servicios Destacados</h2>
-            <div class="divider"></div>
+    <section id="experiences">
+        <div class="container">
+            <h2 class="section-title">Exclusive Experiences</h2>
+            <p class="section-subtitle">Premium Treatments Tailored for Absolute Relaxation</p>
+            
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <div class="service-img-wrapper"></div>
+                    <div class="service-content">
+                        <div class="service-header">
+                            <h3 class="service-name">Tantric Massage</h3>
+                            <span class="service-duration">45 Min</span>
+                        </div>
+                        <p class="service-text">It all begins with absolute calm. Breathing slows down, the body relaxes, and the senses sharpen. The therapist guides the journey with slow, conscious movements. Perfect for initiating an elegant and controlled sensory path.</p>
+                        <div class="service-meta">
+                            <span class="service-include"><i class="fas fa-shower"></i> Includes Shower</span>
+                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Tantric &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper"></div>
+                    <div class="service-content">
+                        <div class="service-header">
+                            <h3 class="service-name">Nuru Massage</h3>
+                            <span class="service-duration">1 Hour</span>
+                        </div>
+                        <p class="service-text">A completely fluid, wrapping, and continuous journey. Body-to-body contact and constant gliding dissolve all tension, establishing an absolute feeling of proximity. Ideal for those seeking deep sensory connection and prolonged contact.</p>
+                        <div class="service-meta">
+                            <span class="service-include"><i class="fas fa-shower"></i> Includes Shower</span>
+                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Nuru &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper"></div>
+                    <div class="service-content">
+                        <div class="service-header">
+                            <h3 class="service-name">Mutual Massage</h3>
+                            <span class="service-duration">1 Hour</span>
+                        </div>
+                        <p class="service-text">An interactive environment where touch becomes entirely reciprocal. Professionally guided by the therapist, it facilitates closer interaction, building an intimate, sophisticated, and progressively deeper dynamic.</p>
+                        <div class="service-meta">
+                            <span class="service-include"><i class="fas fa-shower"></i> Includes Shower</span>
+                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Mutual &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <span class="service-badge">Most Requested</span>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-header">
+                            <h3 class="service-name">Premium Massage</h3>
+                            <span class="service-duration">1 Hour</span>
+                        </div>
+                        <p class="service-text">The standard-defining experience. It beautifully fuses advanced tantric methodologies, direct body contact, and interactive mutual dynamics. Concludes with an intimate shared ritual in our specialized shower cabin.</p>
+                        <div class="service-meta">
+                            <span class="service-include"><i class="fas fa-shower"></i> Tantric Shower</span>
+                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Premium &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper"></div>
+                    <div class="service-content">
+                        <div class="service-header">
+                            <h3 class="service-name">Elite Ritual</h3>
+                            <span class="service-duration">1h 35 Min</span>
+                        </div>
+                        <p class="service-text">Our most advanced and comprehensive ritual. Meticulously designed to release deep muscular tension while keeping high sensory stimulation. Evolves seamlessly into intense body-to-body contact with tantric components.</p>
+                        <div class="service-meta">
+                            <span class="service-include"><i class="fas fa-box"></i> Therapeutic + Shower</span>
+                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Elite &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <span class="service-badge">New</span>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-header">
+                            <h3 class="service-name">Premium Plus</h3>
+                            <span class="service-duration">1h 30 Min</span>
+                        </div>
+                        <p class="service-text">Engineered for clients pursuing the absolute pinnacle of luxury. Begins with a deep mutual full-body massage and shifts into a magnificent shower ritual elevated by the arrival of an unexpected guest (two therapists).</p>
+                        <div class="service-meta">
+                            <span class="service-include"><i class="fas fa-users"></i> 2 Therapists Shower</span>
+                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Premium+ &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper"></div>
+                    <div class="service-content">
+                        <div class="service-header">
+                            <h3 class="service-name">Couples Massage</h3>
+                            <span class="service-duration">1 Hour</span>
+                        </div>
+                        <p class="service-text">Carefully structured to amplify mutual connection, complicity, and trust. Both partners receive fully synchronized custom massages in an entirely isolated room. An exceptional shared sensory voyage.</p>
+                        <div class="service-meta">
+                            <span class="service-include"><i class="fas fa-user-friends"></i> Private Room</span>
+                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Couples &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper"></div>
+                    <div class="service-content">
+                        <div class="service-header">
+                            <h3 class="service-name">4-Hands Massage</h3>
+                            <span class="service-duration">1 Hour</span>
+                        </div>
+                        <p class="service-text">Two therapists work in absolute, flawless synchronization over your body. Enveloping your muscular system in a continuous, intense flow of touches. Pure luxury and multi-sensory decompression in every second.</p>
+                        <div class="service-meta">
+                            <span class="service-include"><i class="fas fa-hand-sparkles"></i> Dual Synergy</span>
+                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request 4-Hands &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="center-action">
+                <a href="https://wa.me/50763645633" target="_blank" class="btn-gold">View All Custom Rituals</a>
+                <p class="whatsapp-notice">Check real-time availability via <a href="https://wa.me/50763645633" target="_blank">WhatsApp &rarr;</a></p>
+            </div>
         </div>
-        <div class="staff-grid">
-            <div class="service-card">
-                <img src="s1.jpg">
-                <div class="service-body">
-                    <h3>Para Caballeros</h3>
-                    <p>Relajación sensitiva y descontracturante para eliminar el estrés en un entorno discreto.</p>
-                    <a href="servicios.html" class="btn-ver">Ver más detalles</a>
-                </div>
-            </div>
-            <div class="service-card">
-                <img src="s2.jpg">
-                <div class="service-body">
-                    <h3>Para Damas</h3>
-                    <p>Terapias suaves y bienestar reparador diseñados para brindar un momento de paz mental.</p>
-                    <a href="servicios.html" class="btn-ver">Ver más detalles</a>
-                </div>
-            </div>
-            <div class="service-card">
-                <img src="s3.jpg">
-                <div class="service-body">
-                    <h3>Masajes en Pareja</h3>
-                    <p>Compartan una experiencia de relajación total con nuestros terapeutas más calificados.</p>
-                    <a href="servicios.html" class="btn-ver">Ver más detalles</a>
-                </div>
-            </div>
-        </div>
+    </section>
+
+    <section id="why-us" class="container" style="max-width: 100%; padding: 80px 5%;">
+        <h2 class="section-title">Why Veladay Spa</h2>
+        <p class="section-subtitle">Uncompromising Luxury and Total Discretion</p>
         
-        <div class="services-footer">
-            <a href="servicios.html" class="btn-gold-large">Ver Todos los Servicios</a>
+        <div class="why-grid">
+            <div class="why-item">
+                <i class="fas fa-user-shield"></i>
+                <h3>Total Privacy</h3>
+                <p>An isolated, exclusive environment exclusively tailored for gentlemen who value anonymity and silence.</p>
+            </div>
+            <div class="why-item">
+                <i class="fas fa-gem"></i>
+                <h3>Designed Experiences</h3>
+                <p>Every dynamic, therapeutic glide, and aromatic touch is carefully planned and never randomized.</p>
+            </div>
+            <div class="why-item">
+                <i class="fas fa-crown"></i>
+                <h3>Premium Atmosphere</h3>
+                <p>Sophisticated decoration, soothing acoustic fidelity, and impeccable hygiene across all amenities.</p>
+            </div>
+            <div class="why-item">
+                <i class="fas fa-globe"></i>
+                <h3>International Standards</h3>
+                <p>A preferred elite destination continuously trusted by high-profile tourists and local executives alike.</p>
+            </div>
         </div>
     </section>
 
-    <section class="container">
-        <div style="background: var(--verde-oscuro); color: white; border-radius: 30px; padding: 60px 40px; text-align: center; border: 1px solid var(--oro);">
-            <h3 style="color: var(--oro); margin-bottom: 20px;">Atención VIP y Discreción Total</h3>
-            <p>Nuestras terapeutas son amables y profesionales. Atendemos a clientes de alto perfil que buscan un trato exclusivo. **Importante:** Somos un centro de bienestar; no realizamos actos sexuales.</p>
-        </div>
-    </section>
-
-    <section class="container">
-        <div class="cta-final">
-            <h2 style="color:var(--oro); margin-bottom: 20px;">¡Tu Bienestar merece un Premio!</h2>
-            <p style="font-weight: 300; margin-bottom: 40px;">Únete a nuestra membresía exclusiva y empieza a disfrutar de beneficios reales.</p>
+    <section id="therapists">
+        <div class="container">
+            <h2 class="section-title">Our Elite Therapists</h2>
+            <p class="section-subtitle">Certified and Dedicated Professionals</p>
             
-            <div class="promo-grid">
-                <div class="promo-item">
-                    <i class="fas fa-gift"></i>
-                    <h4>Bono de $50</h4>
-                    <p>Acréditalo en tu próximo masaje de 90 min.</p>
+            <div class="therapists-grid">
+                <div class="therapist-card">
+                    <div class="therapist-img"></div>
+                    <div class="therapist-info">
+                        <h3 class="therapist-name">Valentina</h3>
+                        <p class="therapist-role">Deep Tissue Specialist</p>
+                        <a href="https://wa.me/50763645633" target="_blank" class="btn-sm-gold">Book with Her</a>
+                    </div>
                 </div>
-                <div class="promo-item">
-                    <i class="fas fa-star"></i>
-                    <h4>6to Masaje Gratis</h4>
-                    <p>Premiamos tu fidelidad constante.</p>
+                <div class="therapist-card">
+                    <div class="therapist-img"></div>
+                    <div class="therapist-info">
+                        <h3 class="therapist-name">Camila</h3>
+                        <p class="therapist-role">Holistic Therapist</p>
+                        <a href="https://wa.me/50763645633" target="_blank" class="btn-sm-gold">Book with Her</a>
+                    </div>
                 </div>
-                <div class="promo-item">
-                    <i class="fas fa-birthday-cake"></i>
-                    <h4>Tu Cumpleaños</h4>
-                    <p>Recibe 2 manos adicionales de regalo.</p>
+                <div class="therapist-card">
+                    <div class="therapist-img"></div>
+                    <div class="therapist-info">
+                        <h3 class="therapist-name">Sofia</h3>
+                        <p class="therapist-role">Sensory Relaxation Expert</p>
+                        <a href="https://wa.me/50763645633" target="_blank" class="btn-sm-gold">Book with Her</a>
+                    </div>
+                </div>
+                <div class="therapist-card">
+                    <div class="therapist-img"></div>
+                    <div class="therapist-info">
+                        <h3 class="therapist-name">Isabella</h3>
+                        <p class="therapist-role">Certified Tantric Expert</p>
+                        <a href="https://wa.me/50763645633" target="_blank" class="btn-sm-gold">Book with Her</a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <p style="margin-top: 40px; font-style: italic; font-weight: 300; opacity: 0.8;">"El mejor regalo para ti o para alguien especial en su cumpleaños".</p>
+    <section id="journal">
+        <div class="container">
+            <h2 class="section-title">The Journal</h2>
+            <p class="section-subtitle">Wellness, Business & Men's Lifestyle in Panama</p>
             
-            <button class="secret-btn" onclick="sendWs('Membresía VIP', 'Descuento Secreto')">
-                HAZ TU CITA Y CONOCE TU DESCUENTO SECRETO
-            </button>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <span class="blog-tag">Wellness</span>
+                        <h3 class="blog-title">Spas for Men in Panama: Solutions for Executive Stress & Image</h3>
+                        <p class="blog-excerpt">Personal self-care is no longer optional for modern men; it is a vital competitive and psychological advantage.</p>
+                        <a href="#" class="service-link">Read Article &rarr;</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <span class="blog-tag">Lifestyle</span>
+                        <h3 class="blog-title">Balancing Corporate Pressure & High Energy Levels</h3>
+                        <p class="blog-excerpt">How professional sensory massages help executives reset focus, recharge posture, and improve productivity.</p>
+                        <a href="#" class="service-link">Read Article &rarr;</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img"></div>
+                    <div class="blog-content">
+                        <span class="blog-tag">Guides</span>
+                        <h3 class="blog-title">Choosing Your Ideal Massage Ritual: A Strategic Guide</h3>
+                        <p class="blog-excerpt">Deep physical connection, water therapy, dual synchronization, or tantric flows: how to select your treatment.</p>
+                        <a href="#" class="service-link">Read Article &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="info-link-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p><strong>Strategic Location</strong>[Insert Address Here], Panama City, Republic of Panama.<br><span style="color: var(--accent-gold);">Private & Discreete Parking Available.</span></p>
+                    </div>
+
+                    <div class="info-link-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p><strong>Phone Lines</strong>(507) 6197-1583</p>
+                    </div>
+
+                    <div class="info-link-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <p><strong>WhatsApp Booking</strong>(507) 6364-5633</p>
+                    </div>
+
+                    <div class="info-link-item">
+                        <i class="fas fa-clock"></i>
+                        <p><strong>Opening Hours</strong>Monday to Sunday &ndash; 10:00 AM to 10:00 PM</p>
+                    </div>
+
+                    <div class="info-link-item">
+                        <i class="fas fa-envelope"></i>
+                        <p><strong>Email Contacts</strong>info@veladayspa.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-map">
+                    <h3>Exclusive Area Map</h3>
+                    <div class="map-box">
+                        <div>
+                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 15px;"></i>
+                            <p>Google Maps / Waze Embed Interactive Placeholder<br><small style="color: var(--text-muted);">Replace with your iframe code</small></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-logo">VELA DAYSPA</div>
-        <div class="footer-info">
-            <div>
-                <h4 class="footer-title">Ubicación</h4>
-                <p class="footer-text">Parque Lefevre, Plaza Royal Park, PB-19</p>
-                <p class="footer-text">Ciudad de Panamá</p>
+        <div class="container" style="padding-bottom: 20px;">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Veladay Spa</h4>
+                    <p>An elite, highly confidential sanctuary for gentlemen in Panama. We specialize in sophisticated sensory experiences and wellness, combining world-class bodywork techniques to ensure a transformative escape from daily stress.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore Site</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">&rsaquo; Home</a></li>
+                        <li><a href="#experiences">&rsaquo; Experiences</a></li>
+                        <li><a href="#why-us">&rsaquo; Why Veladay</a></li>
+                        <li><a href="#therapists">&rsaquo; Our Staff</a></li>
+                        <li><a href="#journal">&rsaquo; The Journal</a></li>
+                        <li><a href="#contact">&rsaquo; Location & Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>TripAdvisor Recognition</h4>
+                    <p style="margin-bottom: 15px;">Check our reputation or leave an executive review about your stay at our branch.</p>
+                    <a href="#" class="btn-sm-gold"><i class="fab fa-tripadvisor"></i> View TripAdvisor Profile</a>
+                </div>
             </div>
-            <div>
-                <h4 class="footer-title">Contacto</h4>
-                <p class="footer-text">Tel: 222-22222</p>
-                <p class="footer-text">WhatsApp: 6016-2716</p>
+
+            <div class="disclaimer-box">
+                <p>At Veladay Spa Panama, we are strictly dedicated to providing premium spa treatments, professional massages, and comprehensive relaxation with the sole objective of delivering physical, emotional, and mental well-being to our exclusive clientele. All our treatments, including the Tantric Sensory Experience, Deep Tissue, and Elite Rituals, are strictly developed to promote somatic relaxation, alleviate localized muscle stress, increase vascular circulation, and contribute wholly to overall health.</p>
+                <p style="margin-top: 10px; color: var(--text-light); font-weight: 500;">Veladay Spa Panama DOES NOT offer sexual services. We firmly clarify that our professional services are exclusively therapeutic, somatic, and relaxation-oriented. Under no circumstance or interpretation do they pursue lucrative sexual commercial ends. Our therapists are background-checked, fully certified professionals who utilize specialized wellness systems to guarantee an entirely safe, respectful, and deeply rejuvenating environment.</p>
+                <p style="margin-top: 10px;">Additionally, Veladay Spa declares that platforms like Meta (Facebook, Instagram) and Google do not form part of our administrative business nor hold any commercial or contractual liability over our services. These platforms are leveraged solely as digital marketing tools to expand brand awareness. Their usage implies no corporate affiliation or operational oversight regarding our independent local business.</p>
             </div>
-            <div>
-                <h4 class="footer-title">Atención</h4>
-                <p class="footer-text">Lunes a Domingo</p>
-                <p class="footer-text">9:00 AM - 9:00 PM (Previa Cita)</p>
+
+            <div class="copyright">
+                &copy; 2026 Veladay Spa Panama. All rights reserved. 
             </div>
-        </div>
-        <div style="border-top: 1px solid #222; padding-top: 40px; margin-top: 40px; font-size: 0.75rem;">
-            &copy; 2026 Vela DaySpa Panamá. Luxury Wellness Center. (No sexual services).
         </div>
     </footer>
 
-    <script>
-        // Slider
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        function rotateSlider() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        setInterval(rotateSlider, 6000);
-
-        // Paneles Staff
-        function toggleDrop(id) {
-            document.querySelectorAll('.drop-panel').forEach(p => {
-                if(p.id !== id) p.classList.remove('active');
-            });
-            document.getElementById(id).classList.toggle('active');
-        }
-
-        // WhatsApp
-        function sendWs(terapeuta, modalidad) {
-            const numero = "50760162716";
-            let msg = modalidad === 'Descuento Secreto' ? 
-                `Hola Vela DaySpa, quiero reservar mi cita y conocer mi *Descuento Secreto* del día.` : 
-                `Hola Vela DaySpa, quiero reservar con *${terapeuta}* en modalidad *${modalidad}*.`;
-            window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-
-        // Cerrar al click afuera
-        window.onclick = function(event) {
-            if (!event.target.matches('.btn-reserve') && !event.target.closest('.drop-panel')) {
-                document.querySelectorAll('.drop-panel').forEach(p => p.classList.remove('active'));
-            }
-        }
-    </script>
 </body>
 </html>
