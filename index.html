@@ -1,1012 +1,483 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veladay Spa | Men's Spa & Sensory Experiences</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* --- DESIGN SYSTEM & DARK THEME VARIABLES --- */
-        :root {
-            --bg-main: #0b0c10;
-            --bg-secondary: #12141c;
-            --bg-card: #1a1d24;
-            --accent-gold: #c5a880;
-            --accent-gold-hover: #e0c5a2;
-            --text-light: #f5f5f5;
-            --text-muted: #a0a5b5;
-            --border-color: #242936;
-            --font-title: 'Cinzel', serif;
-            --font-body: 'Montserrat', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-light);
-            font-family: var(--font-body);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 0;
-        }
-
-        .btn-gold {
-            display: inline-block;
-            background-color: var(--accent-gold);
-            color: #000;
-            padding: 14px 28px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            border: 1px solid var(--accent-gold);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-gold:hover {
-            background-color: transparent;
-            color: var(--accent-gold);
-            box-shadow: 0 0 15px rgba(197, 168, 128, 0.4);
-        }
-
-        .section-title {
-            font-family: var(--font-title);
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            color: var(--text-light);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--accent-gold);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 50px;
-        }
-
-        /* --- HEADER & NAVIGATION --- */
-        header {
-            background-color: rgba(11, 12, 16, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo-placeholder {
-            font-family: var(--font-title);
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-            border: 1px dashed rgba(197, 168, 128, 0.3); /* Borrar esto cuando pongas tu imagen */
-            padding: 5px 10px;
-        }
-
-        .logo-placeholder img {
-            height: 45px;
-            margin-right: 10px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-menu a {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .nav-menu a:hover, .nav-menu a.active {
-            color: var(--accent-gold);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .lang-switch {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .lang-switch span.active {
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
-
-        /* --- HERO SECTION --- */
-        #home {
-            background: linear-gradient(rgba(11, 12, 16, 0.85), rgba(11, 12, 16, 0.9)), url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=1920') no-repeat center center/cover;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 100px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .hero-tagline {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-        }
-
-        .hero-title {
-            font-family: var(--font-title);
-            font-size: 3.5rem;
-            margin-bottom: 25px;
-            letter-spacing: 3px;
-            line-height: 1.2;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        /* --- EXPERIENCES (SERVICES) SECTION --- */
-        #experiences {
-            background-color: var(--bg-secondary);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .service-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-gold);
-        }
-
-        .service-img-wrapper {
-            height: 220px;
-            background-color: #222;
-            position: relative;
-        }
-
-        /* Reemplaza este background-image por tus enlaces de fotos */
-        .service-card:nth-child(1) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=600') center/cover; }
-        .service-card:nth-child(2) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1519823551276-6497b50630f6?q=80&w=600') center/cover; }
-        .service-card:nth-child(3) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=600') center/cover; }
-        .service-card:nth-child(4) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=80&w=600') center/cover; }
-        .service-card:nth-child(5) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=600') center/cover; }
-        .service-card:nth-child(6) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=600') center/cover; }
-        .service-card:nth-child(7) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=600') center/cover; }
-        .service-card:nth-child(8) .service-img-wrapper { background: url('https://images.unsplash.com/photo-1611077544195-0b7041c97a8e?q=80&w=600') center/cover; }
-
-        .service-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--accent-gold);
-            color: #000;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 4px 10px;
-            letter-spacing: 1px;
-        }
-
-        .service-content {
-            padding: 25px;
-        }
-
-        .service-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 15px;
-        }
-
-        .service-name {
-            font-family: var(--font-title);
-            font-size: 1.3rem;
-            color: var(--text-light);
-        }
-
-        .service-duration {
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-            font-weight: 500;
-        }
-
-        .service-text {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            min-height: 80px;
-        }
-
-        .service-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid var(--border-color);
-            padding-top: 15px;
-            font-size: 0.85rem;
-        }
-
-        .service-include {
-            color: var(--text-light);
-        }
-
-        .service-include i {
-            color: var(--accent-gold);
-            margin-right: 6px;
-        }
-
-        .service-link {
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
-
-        .service-link:hover {
-            color: var(--text-light);
-        }
-
-        .center-action {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .whatsapp-notice {
-            margin-top: 15px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        
-        .whatsapp-notice a {
-            color: #25d366;
-            font-weight: 600;
-        }
-
-        /* --- THERAPISTS SECTION --- */
-        #therapists {
-            background-color: var(--bg-main);
-        }
-
-        .therapists-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-        }
-
-        .therapist-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            text-align: center;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .therapist-card:hover {
-            border-color: var(--accent-gold);
-        }
-
-        .therapist-img {
-            height: 300px;
-            background-color: #222;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
-            position: relative;
-        }
-
-        /* Marcadores para fotos de terapeutas */
-        .therapist-card:nth-child(1) .therapist-img { background: url('https://images.unsplash.com/photo-1594744803329-e58b31de215f?q=80&w=400') center/cover; }
-        .therapist-card:nth-child(2) .therapist-img { background: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400') center/cover; }
-        .therapist-card:nth-child(3) .therapist-img { background: url('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=400') center/cover; }
-        .therapist-card:nth-child(4) .therapist-img { background: url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400') center/cover; }
-
-        .therapist-info {
-            padding: 20px;
-        }
-
-        .therapist-name {
-            font-family: var(--font-title);
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .therapist-role {
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-sm-gold {
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            padding: 8px 16px;
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            display: inline-block;
-        }
-
-        .btn-sm-gold:hover {
-            background-color: var(--accent-gold);
-            color: #000;
-        }
-
-        /* --- WHY CHOOSE US --- */
-        #why-us {
-            background: linear-gradient(rgba(18, 20, 28, 0.9), rgba(18, 20, 28, 0.9)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200') center/cover fixed;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            text-align: center;
-        }
-
-        .why-item i {
-            font-size: 2.5rem;
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-        }
-
-        .why-item h3 {
-            font-family: var(--font-title);
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .why-item p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* --- JOURNAL (BLOG) --- */
-        #journal {
-            background-color: var(--bg-main);
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .blog-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-        }
-
-        .blog-img {
-            height: 200px;
-            background-color: #222;
-        }
-        .blog-card:nth-child(1) .blog-img { background: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=600') center/cover; }
-        .blog-card:nth-child(2) .blog-img { background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600') center/cover; }
-        .blog-card:nth-child(3) .blog-img { background: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=600') center/cover; }
-
-        .blog-content {
-            padding: 25px;
-        }
-
-        .blog-tag {
-            font-size: 0.75rem;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-
-        .blog-title {
-            font-family: var(--font-title);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .blog-excerpt {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        /* --- LOCATION & CONTACT --- */
-        #contact {
-            background-color: var(--bg-secondary);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info h3, .contact-map h3 {
-            font-family: var(--font-title);
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-            color: var(--accent-gold);
-        }
-
-        .info-link-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .info-link-item i {
-            color: var(--accent-gold);
-            margin-right: 15px;
-            font-size: 1.2rem;
-            margin-top: 4px;
-        }
-
-        .info-link-item p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        .info-link-item strong {
-            color: var(--text-light);
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .map-box {
-            width: 100%;
-            height: 250px;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* --- FOOTER & DISCLAIMER --- */
-        footer {
-            background-color: #07080a;
-            padding: 60px 0 20px 0;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h4 {
-            font-family: var(--font-title);
-            color: var(--text-light);
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-
-        .footer-col p {
-            font-size: 0.85rem;
-            line-height: 1.6;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            font-size: 0.85rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-gold);
-            padding-left: 5px;
-        }
-
-        .disclaimer-box {
-            border-top: 1px solid var(--border-color);
-            padding-top: 30px;
-            margin-top: 30px;
-            font-size: 0.75rem;
-            line-height: 1.7;
-            text-align: justify;
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #111;
-            font-size: 0.8rem;
-        }
-
-        /* --- FLOATING WHATSAPP BUTTON --- */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            color: #fff;
-        }
-
-        /* --- RESPONSIVE DESIGN --- */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none; /* Simplificado para plantilla básica */
-            }
-            .hero-title {
-                font-size: 2.3rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Veladay Spa Panamá | Bienestar y Relajación</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--fondo:#faf7f2;
+--blanco:#ffffff;
+--dorado:#b6925b;
+--texto:#333;
+--gris:#666;
+--sombra:0 10px 30px rgba(0,0,0,.08);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Montserrat,sans-serif;
+background:var(--fondo);
+color:var(--texto);
+line-height:1.6;
+}
+
+header{
+background:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+nav{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+}
+
+.logo{
+font-family:Cinzel,serif;
+font-size:28px;
+color:var(--dorado);
+font-weight:600;
+}
+
+.menu a{
+text-decoration:none;
+margin-left:20px;
+color:#333;
+font-weight:500;
+}
+
+.hero{
+min-height:80vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:40px;
+background:url(hero.jpg) center/cover;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(255,255,255,.75);
+}
+
+.hero-content{
+position:relative;
+max-width:800px;
+}
+
+.hero h1{
+font-family:Cinzel,serif;
+font-size:56px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+background:var(--dorado);
+color:white;
+padding:14px 30px;
+text-decoration:none;
+border-radius:30px;
+}
+
+section{
+padding:80px 20px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+h2{
+font-family:Cinzel,serif;
+text-align:center;
+margin-bottom:15px;
+font-size:38px;
+}
+
+.subtitulo{
+text-align:center;
+color:var(--gris);
+margin-bottom:50px;
+}
+
+.grid{
+display:grid;
+gap:25px;
+}
+
+.servicios{
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+
+.card{
+background:white;
+border-radius:16px;
+overflow:hidden;
+box-shadow:var(--sombra);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:25px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.terapeutas{
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+
+.terapeuta{
+background:white;
+border-radius:16px;
+overflow:hidden;
+box-shadow:var(--sombra);
+text-align:center;
+}
+
+.terapeuta img{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+.blog{
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+}
+
+footer{
+background:#222;
+color:white;
+padding:60px 20px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+text-decoration:none;
+}
+
+</style>
 </head>
+
 <body>
 
-    <a href="https://wa.me/50763645633" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<header>
+<nav>
+<div class="logo">VELADAY SPA</div>
 
-    <header>
-        <div class="nav-container">
-            <div class="logo-placeholder">
-                VELADAY SPA
-            </div>
-            <nav class="nav-menu">
-                <a href="#home" class="active">Home</a>
-                <a href="#experiences">Experiences</a>
-                <a href="#why-us">About Us</a>
-                <a href="#therapists">Therapists</a>
-                <a href="#journal">Journal</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <div class="nav-actions">
-                <div class="lang-switch">
-                    <span class="active">EN</span> | <span>ES</span>
-                </div>
-                <a href="https://wa.me/50763645633" target="_blank" class="btn-gold" style="padding: 8px 16px; font-size: 0.75rem;">Book Appointment</a>
-            </div>
-        </div>
-    </header>
+<div class="menu">
+<a href="#servicios">Servicios</a>
+<a href="#equipo">Equipo</a>
+<a href="#blog">Blog</a>
+<a href="#contacto">Contacto</a>
+</div>
+</nav>
+</header>
 
-    <section id="home">
-        <div class="hero-content">
-            <p class="hero-tagline">Men's Spa &middot; Private Sensory Experiences</p>
-            <h1 class="hero-title">Veladay Spa Panama</h1>
-            <p class="hero-description">A private, exclusive sanctuary designed for men seeking a completely distinct, intense, and elegant experience in Panama City. Disconnect, surrender control, and step into an atmosphere unlike any ordinary spa.</p>
-            <a href="https://wa.me/50763645633" target="_blank" class="btn-gold">Book Private Experience</a>
-        </div>
-    </section>
+<section class="hero">
 
-    <section id="experiences">
-        <div class="container">
-            <h2 class="section-title">Exclusive Experiences</h2>
-            <p class="section-subtitle">Premium Treatments Tailored for Absolute Relaxation</p>
-            
-            <div class="services-grid">
-                
-                <div class="service-card">
-                    <div class="service-img-wrapper"></div>
-                    <div class="service-content">
-                        <div class="service-header">
-                            <h3 class="service-name">Tantric Massage</h3>
-                            <span class="service-duration">45 Min</span>
-                        </div>
-                        <p class="service-text">It all begins with absolute calm. Breathing slows down, the body relaxes, and the senses sharpen. The therapist guides the journey with slow, conscious movements. Perfect for initiating an elegant and controlled sensory path.</p>
-                        <div class="service-meta">
-                            <span class="service-include"><i class="fas fa-shower"></i> Includes Shower</span>
-                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Tantric &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+<div class="hero-content">
 
-                <div class="service-card">
-                    <div class="service-img-wrapper"></div>
-                    <div class="service-content">
-                        <div class="service-header">
-                            <h3 class="service-name">Nuru Massage</h3>
-                            <span class="service-duration">1 Hour</span>
-                        </div>
-                        <p class="service-text">A completely fluid, wrapping, and continuous journey. Body-to-body contact and constant gliding dissolve all tension, establishing an absolute feeling of proximity. Ideal for those seeking deep sensory connection and prolonged contact.</p>
-                        <div class="service-meta">
-                            <span class="service-include"><i class="fas fa-shower"></i> Includes Shower</span>
-                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Nuru &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+<h1>Bienestar, Relajación y Equilibrio</h1>
 
-                <div class="service-card">
-                    <div class="service-img-wrapper"></div>
-                    <div class="service-content">
-                        <div class="service-header">
-                            <h3 class="service-name">Mutual Massage</h3>
-                            <span class="service-duration">1 Hour</span>
-                        </div>
-                        <p class="service-text">An interactive environment where touch becomes entirely reciprocal. Professionally guided by the therapist, it facilitates closer interaction, building an intimate, sophisticated, and progressively deeper dynamic.</p>
-                        <div class="service-meta">
-                            <span class="service-include"><i class="fas fa-shower"></i> Includes Shower</span>
-                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Mutual &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+<p>
+Disfruta experiencias diseñadas para liberar tensiones, reducir el estrés y mejorar tu bienestar físico y emocional.
+</p>
 
-                <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <span class="service-badge">Most Requested</span>
-                    </div>
-                    <div class="service-content">
-                        <div class="service-header">
-                            <h3 class="service-name">Premium Massage</h3>
-                            <span class="service-duration">1 Hour</span>
-                        </div>
-                        <p class="service-text">The standard-defining experience. It beautifully fuses advanced tantric methodologies, direct body contact, and interactive mutual dynamics. Concludes with an intimate shared ritual in our specialized shower cabin.</p>
-                        <div class="service-meta">
-                            <span class="service-include"><i class="fas fa-shower"></i> Tantric Shower</span>
-                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Premium &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+<a href="https://wa.me/50760162716" class="btn">
+Reservar por WhatsApp
+</a>
 
-                <div class="service-card">
-                    <div class="service-img-wrapper"></div>
-                    <div class="service-content">
-                        <div class="service-header">
-                            <h3 class="service-name">Elite Ritual</h3>
-                            <span class="service-duration">1h 35 Min</span>
-                        </div>
-                        <p class="service-text">Our most advanced and comprehensive ritual. Meticulously designed to release deep muscular tension while keeping high sensory stimulation. Evolves seamlessly into intense body-to-body contact with tantric components.</p>
-                        <div class="service-meta">
-                            <span class="service-include"><i class="fas fa-box"></i> Therapeutic + Shower</span>
-                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Elite &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+</div>
 
-                <div class="service-card">
-                    <div class="service-img-wrapper">
-                        <span class="service-badge">New</span>
-                    </div>
-                    <div class="service-content">
-                        <div class="service-header">
-                            <h3 class="service-name">Premium Plus</h3>
-                            <span class="service-duration">1h 30 Min</span>
-                        </div>
-                        <p class="service-text">Engineered for clients pursuing the absolute pinnacle of luxury. Begins with a deep mutual full-body massage and shifts into a magnificent shower ritual elevated by the arrival of an unexpected guest (two therapists).</p>
-                        <div class="service-meta">
-                            <span class="service-include"><i class="fas fa-users"></i> 2 Therapists Shower</span>
-                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Premium+ &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+</section>
 
-                <div class="service-card">
-                    <div class="service-img-wrapper"></div>
-                    <div class="service-content">
-                        <div class="service-header">
-                            <h3 class="service-name">Couples Massage</h3>
-                            <span class="service-duration">1 Hour</span>
-                        </div>
-                        <p class="service-text">Carefully structured to amplify mutual connection, complicity, and trust. Both partners receive fully synchronized custom massages in an entirely isolated room. An exceptional shared sensory voyage.</p>
-                        <div class="service-meta">
-                            <span class="service-include"><i class="fas fa-user-friends"></i> Private Room</span>
-                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request Couples &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+<section id="servicios">
 
-                <div class="service-card">
-                    <div class="service-img-wrapper"></div>
-                    <div class="service-content">
-                        <div class="service-header">
-                            <h3 class="service-name">4-Hands Massage</h3>
-                            <span class="service-duration">1 Hour</span>
-                        </div>
-                        <p class="service-text">Two therapists work in absolute, flawless synchronization over your body. Enveloping your muscular system in a continuous, intense flow of touches. Pure luxury and multi-sensory decompression in every second.</p>
-                        <div class="service-meta">
-                            <span class="service-include"><i class="fas fa-hand-sparkles"></i> Dual Synergy</span>
-                            <a href="https://wa.me/50763645633" target="_blank" class="service-link">Request 4-Hands &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+<div class="container">
 
-            </div>
+<h2>Nuestros Servicios</h2>
 
-            <div class="center-action">
-                <a href="https://wa.me/50763645633" target="_blank" class="btn-gold">View All Custom Rituals</a>
-                <p class="whatsapp-notice">Check real-time availability via <a href="https://wa.me/50763645633" target="_blank">WhatsApp &rarr;</a></p>
-            </div>
-        </div>
-    </section>
+<p class="subtitulo">
+Tratamientos diseñados para tu bienestar integral.
+</p>
 
-    <section id="why-us" class="container" style="max-width: 100%; padding: 80px 5%;">
-        <h2 class="section-title">Why Veladay Spa</h2>
-        <p class="section-subtitle">Uncompromising Luxury and Total Discretion</p>
-        
-        <div class="why-grid">
-            <div class="why-item">
-                <i class="fas fa-user-shield"></i>
-                <h3>Total Privacy</h3>
-                <p>An isolated, exclusive environment exclusively tailored for gentlemen who value anonymity and silence.</p>
-            </div>
-            <div class="why-item">
-                <i class="fas fa-gem"></i>
-                <h3>Designed Experiences</h3>
-                <p>Every dynamic, therapeutic glide, and aromatic touch is carefully planned and never randomized.</p>
-            </div>
-            <div class="why-item">
-                <i class="fas fa-crown"></i>
-                <h3>Premium Atmosphere</h3>
-                <p>Sophisticated decoration, soothing acoustic fidelity, and impeccable hygiene across all amenities.</p>
-            </div>
-            <div class="why-item">
-                <i class="fas fa-globe"></i>
-                <h3>International Standards</h3>
-                <p>A preferred elite destination continuously trusted by high-profile tourists and local executives alike.</p>
-            </div>
-        </div>
-    </section>
+<div class="grid servicios">
 
-    <section id="therapists">
-        <div class="container">
-            <h2 class="section-title">Our Elite Therapists</h2>
-            <p class="section-subtitle">Certified and Dedicated Professionals</p>
-            
-            <div class="therapists-grid">
-                <div class="therapist-card">
-                    <div class="therapist-img"></div>
-                    <div class="therapist-info">
-                        <h3 class="therapist-name">Valentina</h3>
-                        <p class="therapist-role">Deep Tissue Specialist</p>
-                        <a href="https://wa.me/50763645633" target="_blank" class="btn-sm-gold">Book with Her</a>
-                    </div>
-                </div>
-                <div class="therapist-card">
-                    <div class="therapist-img"></div>
-                    <div class="therapist-info">
-                        <h3 class="therapist-name">Camila</h3>
-                        <p class="therapist-role">Holistic Therapist</p>
-                        <a href="https://wa.me/50763645633" target="_blank" class="btn-sm-gold">Book with Her</a>
-                    </div>
-                </div>
-                <div class="therapist-card">
-                    <div class="therapist-img"></div>
-                    <div class="therapist-info">
-                        <h3 class="therapist-name">Sofia</h3>
-                        <p class="therapist-role">Sensory Relaxation Expert</p>
-                        <a href="https://wa.me/50763645633" target="_blank" class="btn-sm-gold">Book with Her</a>
-                    </div>
-                </div>
-                <div class="therapist-card">
-                    <div class="therapist-img"></div>
-                    <div class="therapist-info">
-                        <h3 class="therapist-name">Isabella</h3>
-                        <p class="therapist-role">Certified Tantric Expert</p>
-                        <a href="https://wa.me/50763645633" target="_blank" class="btn-sm-gold">Book with Her</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="card">
+<img src="servicio1.jpg">
+<div class="card-content">
+<h3>Masaje Relajante</h3>
+<p>Ayuda a reducir el estrés, mejorar el descanso y liberar tensiones musculares.</p>
+</div>
+</div>
 
-    <section id="journal">
-        <div class="container">
-            <h2 class="section-title">The Journal</h2>
-            <p class="section-subtitle">Wellness, Business & Men's Lifestyle in Panama</p>
-            
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-img"></div>
-                    <div class="blog-content">
-                        <span class="blog-tag">Wellness</span>
-                        <h3 class="blog-title">Spas for Men in Panama: Solutions for Executive Stress & Image</h3>
-                        <p class="blog-excerpt">Personal self-care is no longer optional for modern men; it is a vital competitive and psychological advantage.</p>
-                        <a href="#" class="service-link">Read Article &rarr;</a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-img"></div>
-                    <div class="blog-content">
-                        <span class="blog-tag">Lifestyle</span>
-                        <h3 class="blog-title">Balancing Corporate Pressure & High Energy Levels</h3>
-                        <p class="blog-excerpt">How professional sensory massages help executives reset focus, recharge posture, and improve productivity.</p>
-                        <a href="#" class="service-link">Read Article &rarr;</a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-img"></div>
-                    <div class="blog-content">
-                        <span class="blog-tag">Guides</span>
-                        <h3 class="blog-title">Choosing Your Ideal Massage Ritual: A Strategic Guide</h3>
-                        <p class="blog-excerpt">Deep physical connection, water therapy, dual synchronization, or tantric flows: how to select your treatment.</p>
-                        <a href="#" class="service-link">Read Article &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="card">
+<img src="servicio2.jpg">
+<div class="card-content">
+<h3>Masaje Deportivo</h3>
+<p>Ideal para recuperación muscular y preparación física.</p>
+</div>
+</div>
 
-    <section id="contact">
-        <div class="container">
-            <div class="contact-grid">
-                
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    
-                    <div class="info-link-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p><strong>Strategic Location</strong>[Insert Address Here], Panama City, Republic of Panama.<br><span style="color: var(--accent-gold);">Private & Discreete Parking Available.</span></p>
-                    </div>
+<div class="card">
+<img src="servicio3.jpg">
+<div class="card-content">
+<h3>Masaje Descontracturante</h3>
+<p>Enfocado en aliviar molestias musculares y rigidez.</p>
+</div>
+</div>
 
-                    <div class="info-link-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <p><strong>Phone Lines</strong>(507) 6197-1583</p>
-                    </div>
+<div class="card">
+<img src="servicio4.jpg">
+<div class="card-content">
+<h3>Aromaterapia</h3>
+<p>Combinación de masaje y aceites esenciales naturales.</p>
+</div>
+</div>
 
-                    <div class="info-link-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <p><strong>WhatsApp Booking</strong>(507) 6364-5633</p>
-                    </div>
+<div class="card">
+<img src="servicio5.jpg">
+<div class="card-content">
+<h3>Masaje Sensitivo</h3>
+<p>Experiencia enfocada en la relajación consciente y el bienestar corporal.</p>
+</div>
+</div>
 
-                    <div class="info-link-item">
-                        <i class="fas fa-clock"></i>
-                        <p><strong>Opening Hours</strong>Monday to Sunday &ndash; 10:00 AM to 10:00 PM</p>
-                    </div>
+<div class="card">
+<img src="servicio6.jpg">
+<div class="card-content">
+<h3>Masaje de Parejas</h3>
+<p>Disfruta una sesión relajante junto a tu acompañante.</p>
+</div>
+</div>
 
-                    <div class="info-link-item">
-                        <i class="fas fa-envelope"></i>
-                        <p><strong>Email Contacts</strong>info@veladayspa.com</p>
-                    </div>
-                </div>
+<div class="card">
+<img src="servicio7.jpg">
+<div class="card-content">
+<h3>Masaje Facial</h3>
+<p>Favorece la relajación facial y mejora la sensación de bienestar.</p>
+</div>
+</div>
 
-                <div class="contact-map">
-                    <h3>Exclusive Area Map</h3>
-                    <div class="map-box">
-                        <div>
-                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 15px;"></i>
-                            <p>Google Maps / Waze Embed Interactive Placeholder<br><small style="color: var(--text-muted);">Replace with your iframe code</small></p>
-                        </div>
-                    </div>
-                </div>
+<div class="card">
+<img src="servicio8.jpg">
+<div class="card-content">
+<h3>Experiencia Premium</h3>
+<p>Un tratamiento integral para cuerpo y mente.</p>
+</div>
+</div>
 
-            </div>
-        </div>
-    </section>
+</div>
 
-    <footer>
-        <div class="container" style="padding-bottom: 20px;">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Veladay Spa</h4>
-                    <p>An elite, highly confidential sanctuary for gentlemen in Panama. We specialize in sophisticated sensory experiences and wellness, combining world-class bodywork techniques to ensure a transformative escape from daily stress.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Explore Site</h4>
-                    <ul class="footer-links">
-                        <li><a href="#home">&rsaquo; Home</a></li>
-                        <li><a href="#experiences">&rsaquo; Experiences</a></li>
-                        <li><a href="#why-us">&rsaquo; Why Veladay</a></li>
-                        <li><a href="#therapists">&rsaquo; Our Staff</a></li>
-                        <li><a href="#journal">&rsaquo; The Journal</a></li>
-                        <li><a href="#contact">&rsaquo; Location & Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>TripAdvisor Recognition</h4>
-                    <p style="margin-bottom: 15px;">Check our reputation or leave an executive review about your stay at our branch.</p>
-                    <a href="#" class="btn-sm-gold"><i class="fab fa-tripadvisor"></i> View TripAdvisor Profile</a>
-                </div>
-            </div>
+</div>
 
-            <div class="disclaimer-box">
-                <p>At Veladay Spa Panama, we are strictly dedicated to providing premium spa treatments, professional massages, and comprehensive relaxation with the sole objective of delivering physical, emotional, and mental well-being to our exclusive clientele. All our treatments, including the Tantric Sensory Experience, Deep Tissue, and Elite Rituals, are strictly developed to promote somatic relaxation, alleviate localized muscle stress, increase vascular circulation, and contribute wholly to overall health.</p>
-                <p style="margin-top: 10px; color: var(--text-light); font-weight: 500;">Veladay Spa Panama DOES NOT offer sexual services. We firmly clarify that our professional services are exclusively therapeutic, somatic, and relaxation-oriented. Under no circumstance or interpretation do they pursue lucrative sexual commercial ends. Our therapists are background-checked, fully certified professionals who utilize specialized wellness systems to guarantee an entirely safe, respectful, and deeply rejuvenating environment.</p>
-                <p style="margin-top: 10px;">Additionally, Veladay Spa declares that platforms like Meta (Facebook, Instagram) and Google do not form part of our administrative business nor hold any commercial or contractual liability over our services. These platforms are leveraged solely as digital marketing tools to expand brand awareness. Their usage implies no corporate affiliation or operational oversight regarding our independent local business.</p>
-            </div>
+</section>
 
-            <div class="copyright">
-                &copy; 2026 Veladay Spa Panama. All rights reserved. 
-            </div>
-        </div>
-    </footer>
+<section id="equipo">
+
+<div class="container">
+
+<h2>Nuestro Equipo</h2>
+
+<p class="subtitulo">
+Profesionales especializados en bienestar y relajación.
+</p>
+
+<div class="grid terapeutas">
+
+<div class="terapeuta">
+<img src="terapeuta1.jpg">
+<div class="card-content">
+<h3>Liz</h3>
+<p>Especialista en relajación y aromaterapia.</p>
+</div>
+</div>
+
+<div class="terapeuta">
+<img src="terapeuta2.jpg">
+<div class="card-content">
+<h3>Dayana</h3>
+<p>Masaje deportivo y recuperación muscular.</p>
+</div>
+</div>
+
+<div class="terapeuta">
+<img src="terapeuta3.jpg">
+<div class="card-content">
+<h3>Stefany</h3>
+<p>Masajes terapéuticos y bienestar integral.</p>
+</div>
+</div>
+
+<div class="terapeuta">
+<img src="terapeuta4.jpg">
+<div class="card-content">
+<h3>Anthonella</h3>
+<p>Técnicas de relajación profunda.</p>
+</div>
+</div>
+
+<div class="terapeuta">
+<img src="terapeuta5.jpg">
+<div class="card-content">
+<h3>Ryan</h3>
+<p>Especialista en masajes corporales.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="blog">
+
+<div class="container">
+
+<h2>Blog de Bienestar</h2>
+
+<p class="subtitulo">
+Consejos y beneficios para una vida más equilibrada.
+</p>
+
+<div class="grid blog">
+
+<div class="card">
+
+<img src="blog-relajante.jpg">
+
+<div class="card-content">
+
+<h3>Beneficios del Masaje Relajante</h3>
+
+<p>
+El masaje relajante ayuda a disminuir los niveles de estrés, mejorar la calidad del sueño, aliviar tensiones musculares y promover una sensación general de bienestar. También favorece la circulación sanguínea y contribuye al equilibrio emocional.
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="blog-sensitivo.jpg">
+
+<div class="card-content">
+
+<h3>¿Qué es un Masaje Sensitivo?</h3>
+
+<p>
+El masaje sensitivo busca incrementar la conciencia corporal mediante movimientos suaves y técnicas enfocadas en la relajación. Muchas personas lo utilizan para desconectar de la rutina diaria, reducir la ansiedad y mejorar su conexión con el bienestar físico y emocional.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer id="contacto">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+<h3>Contacto</h3>
+<br>
+<p>WhatsApp: (507) 6016-2716</p>
+<p>Email: veladayspa5@gmail.com</p>
+<p>Horario: 9:30 AM - 10:30 PM</p>
+</div>
+
+<div>
+<h3>Ubicación</h3>
+<br>
+<p>
+Panamá, San Francisco, Santa Elena con Parque Lefevre,
+Plaza Royal Park, Local PB-19.
+</p>
+</div>
+
+<div>
+<h3>Veladay Spa</h3>
+<br>
+<p>
+Espacio dedicado al bienestar, la relajación y el equilibrio integral mediante tratamientos profesionales orientados al cuidado personal.
+</p>
+</div>
+
+</div>
+
+<br><br>
+
+<center>
+© 2026 Veladay Spa Panamá - Todos los derechos reservados
+</center>
+
+</div>
+
+</footer>
+
+<a class="whatsapp" href="https://wa.me/50760162716">💬</a>
 
 </body>
 </html>
